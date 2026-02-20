@@ -3,10 +3,11 @@ const DATA_URL = "https://raw.githubusercontent.com/AnaushkaGoyal/AnaushkaGoyal.
 const FIELDS = { tab: "tabE", lap: "lapE", phone: "phoneE" };
 
 const COLORS = {
-  tab: "rgba(78, 220, 255, 0.85)",     // cyan
-  lap: "rgba(255, 214, 92, 0.82)",     // yellow
-  phone: "rgba(255, 142, 72, 0.80)"    // orange
+  tab: "rgba(78, 220, 255, 0.65)",
+  lap: "rgba(255, 214, 92, 0.62)",
+  phone: "rgba(255, 142, 72, 0.60)"
 };
+
 
 // ring radius range (pixels)
 const R_MIN = 1.2;
@@ -104,7 +105,7 @@ function drawRing(x, y, r, color, glowBoost=1) {
   ctx.strokeStyle = color;
   ctx.lineWidth = 1.0;
   ctx.shadowColor = color;
-  ctx.shadowBlur = 10 * glowBoost;
+  ctx.shadowBlur = 3 * glowBoost;
   ctx.globalAlpha = 1;
   ctx.beginPath();
   ctx.arc(x, y, r, 0, Math.PI*2);
@@ -131,7 +132,7 @@ function startTyping() {
   typedStarted = true;
   typedEl.textContent = "";
   let i = 0;
-  const speed = 22; // ms per char
+  const speed = 10; // ms per char
   const tick = () => {
     typedEl.textContent = TAGLINE.slice(0, i);
     i++;
@@ -222,19 +223,30 @@ function frame(now) {
   const pulse = 1 + Math.sin(pulseT) * PULSE_AMPLITUDE;
 
   // draw points
-  for (const p of points) {
-    if (ms < p.delay) continue;
+  // per-point looping envelope: fade in -> hold -> fade out -> repeat
+  const localT = (ms - p.delay);
+  if (localT < 0) continue;
 
-    // fade in per-point
-    const a = clamp((ms - p.delay) / 650, 0, 1); // emergence ease
-    const ease = a*a*(3 - 2*a); // smoothstep
+  const cyc = localT % CYCLE_MS;
+
+ // fade in
+ let env = 1;
+ if (cyc < FADE_IN_MS) {
+  const u = clamp(cyc / FADE_IN_MS, 0, 1);
+  env = u*u*(3 - 2*u); // smoothstep in
+ } else if (cyc > (CYCLE_MS - FADE_OUT_MS)) {
+  const u = clamp((CYCLE_MS - cyc) / FADE_OUT_MS, 0, 1);
+  env = u*u*(3 - 2*u); // smoothstep out
+ } else {
+  env = 1; // hold
+ }
 
     // breathing starts after PULSE_START_MS; before that, keep near 1
     const localPulse = ms >= PULSE_START_MS
       ? (1 + Math.sin(pulseT + p.phase) * PULSE_AMPLITUDE)
       : 1;
 
-    const s = ease * localPulse;
+    const s = env * localPulse;
 
     // keep order consistent (you said you don't care)
     drawRing(p.x, p.y, p.rTab * s, COLORS.tab, p.glow);
