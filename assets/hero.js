@@ -20,6 +20,10 @@ const PULSE_START_MS = 2600;  // when breathing clearly starts
 const TYPE_AT_MS = 5200;      // when typed line begins
 const PULSE_AMPLITUDE = 0.028; // 2.8% pulse
 
+const CYCLE_MS = 5200;      // total cycle per point
+const FADE_IN_MS = 1200;    // fade in duration
+const FADE_OUT_MS = 1600;   // fade out duration
+
 const TAGLINE = "Geospatial intelligence that drives real decisions.";
 
 // ===== Canvas setup =====
@@ -209,46 +213,45 @@ async function loadData() {
 function frame(now) {
   const ms = now - startTime;
 
-  // background
-  ctx.clearRect(0,0,W,H);
+  // background (solid black)
+  ctx.clearRect(0, 0, W, H);
   ctx.fillStyle = "#000";
-  ctx.fillRect(0,0,W,H);
-  
+  ctx.fillRect(0, 0, W, H);
 
   // start typing at time
   if (ms >= TYPE_AT_MS) startTyping();
 
-  // pulse factor
+  // pulse time
   const pulseT = (ms - PULSE_START_MS) * 0.0022;
-  const pulse = 1 + Math.sin(pulseT) * PULSE_AMPLITUDE;
 
   // draw points
-  // per-point looping envelope: fade in -> hold -> fade out -> repeat
-  const localT = (ms - p.delay);
-  if (localT < 0) continue;
+  for (const p of points) {
 
-  const cyc = localT % CYCLE_MS;
+    // per-point looping envelope: fade in -> hold -> fade out -> repeat
+    const localT = ms - p.delay;
+    if (localT < 0) continue;
 
- // fade in
- let env = 1;
- if (cyc < FADE_IN_MS) {
-  const u = clamp(cyc / FADE_IN_MS, 0, 1);
-  env = u*u*(3 - 2*u); // smoothstep in
- } else if (cyc > (CYCLE_MS - FADE_OUT_MS)) {
-  const u = clamp((CYCLE_MS - cyc) / FADE_OUT_MS, 0, 1);
-  env = u*u*(3 - 2*u); // smoothstep out
- } else {
-  env = 1; // hold
- }
+    const cyc = localT % CYCLE_MS;
 
-    // breathing starts after PULSE_START_MS; before that, keep near 1
+    // envelope (0..1)
+    let env = 1;
+    if (cyc < FADE_IN_MS) {
+      const u = clamp(cyc / FADE_IN_MS, 0, 1);
+      env = u * u * (3 - 2 * u); // smoothstep in
+    } else if (cyc > (CYCLE_MS - FADE_OUT_MS)) {
+      const u = clamp((CYCLE_MS - cyc) / FADE_OUT_MS, 0, 1);
+      env = u * u * (3 - 2 * u); // smoothstep out
+    } else {
+      env = 1; // hold
+    }
+
+    // breathing: subtle pulse
     const localPulse = ms >= PULSE_START_MS
       ? (1 + Math.sin(pulseT + p.phase) * PULSE_AMPLITUDE)
       : 1;
 
     const s = env * localPulse;
 
-    // keep order consistent (you said you don't care)
     drawRing(p.x, p.y, p.rTab * s, COLORS.tab, p.glow);
     drawRing(p.x, p.y, p.rLap * s, COLORS.lap, p.glow);
     drawRing(p.x, p.y, p.rPhone * s, COLORS.phone, p.glow);
