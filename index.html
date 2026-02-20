@@ -3,66 +3,648 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Anaushka Goyal | Geospatial Portfolio</title>
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <title>Anaushka Goyal — Geospatial Intelligence</title>
+
+  <style>
+    :root{
+      --bg:#0b0d10;
+      --fg:#e9eef6;
+      --muted:#a7b2c3;
+      --card:#111520;
+      --stroke:#d7e3f6;
+
+      --ring:#bcd0ff;
+      --ring2:#8fb2ff;
+      --ring3:#9ff0de;
+
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --maxw: 1180px;
+
+      --mapW: min(52vw, 720px);
+      --mapH: min(78vh, 720px);
+      --mapWshrunk: min(44vw, 560px);
+      --mapHshrunk: min(42vh, 380px);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(1200px 600px at 16% 10%, rgba(80,120,255,.10), transparent 60%),
+        radial-gradient(900px 500px at 78% 25%, rgba(120,255,220,.08), transparent 60%),
+        var(--bg);
+      color:var(--fg);
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px;}
+
+    /* HERO */
+    header.hero{
+      min-height:100vh;
+      display:flex;
+      align-items:stretch;
+      padding: 34px 0 20px;
+      position:relative;
+    }
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.0fr 1.45fr;
+      gap: 32px;
+      width:100%;
+      align-items:stretch;
+    }
+
+    .heroLeft{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding: 6vh 0;
+      z-index:2;
+    }
+
+    .kicker{
+      color:var(--muted);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:12px;
+      margin-bottom:14px;
+    }
+
+    h1{
+      font-size: 52px;
+      line-height:1.02;
+      margin:0 0 14px 0;
+      font-weight:720;
+      letter-spacing: -.01em;
+    }
+
+    .tagline{
+      font-size:18px;
+      margin: 0 0 12px 0;
+      max-width: 46ch;
+    }
+
+    .typed{
+      font-size:14px;
+      color:var(--muted);
+      margin: 10px 0 22px 0;
+      min-height: 18px;
+      letter-spacing:.02em;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+
+    .btn{
+      border:1px solid rgba(215,227,246,.18);
+      background: rgba(17,21,32,.62);
+      color:var(--fg);
+      padding: 10px 14px;
+      border-radius: 999px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.20);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      font-size:14px;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(215,227,246,.32); background: rgba(17,21,32,.78);}
+
+    /* MAP PANEL (RIGHT) */
+    .heroRight{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      z-index:1;
+    }
+
+    .mapFrame{
+      width: var(--mapW);
+      height: var(--mapH);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(215,227,246,.14);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+
+      transition: width .45s ease, height .45s ease, top .45s ease, right .45s ease, border-radius .45s ease, transform .45s ease;
+      transform: translateZ(0);
+    }
+
+    /* Shrunk/pinned behavior */
+    body.isShrunk .mapFrame{
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      width: var(--mapWshrunk);
+      height: var(--mapHshrunk);
+      z-index: 50;
+      border-radius: 16px;
+    }
+
+    svg{display:block; width:100%; height:100%;}
+    .land{
+      fill: rgba(215,227,246,.06);
+      stroke: rgba(215,227,246,.22);
+      stroke-width: 1.1;
+      vector-effect: non-scaling-stroke;
+    }
+    .outline{
+      fill:none;
+      stroke: rgba(215,227,246,.30);
+      stroke-width: 1.1;
+      vector-effect: non-scaling-stroke;
+    }
+
+    /* SOLID RINGS (no glow) */
+    .ring{
+      fill:none;
+      stroke: var(--ring);
+      stroke-width: 2.2;
+      opacity:.86;
+      vector-effect: non-scaling-stroke;
+    }
+    .ring.secondary{
+      stroke: var(--ring2);
+      stroke-width: 1.7;
+      opacity:.72;
+    }
+    .ring.tertiary{
+      stroke: var(--ring3);
+      stroke-width: 1.5;
+      opacity:.65;
+    }
+
+    /* Keep pulsing always (even when shrunk) */
+    .pulse{ transform-origin: center; animation: pulse 2.6s ease-in-out infinite; }
+    .pulse.slow{ animation-duration: 3.4s; }
+    .pulse.fast{ animation-duration: 2.0s; }
+    @keyframes pulse{
+      0%{ transform: scale(0.86); opacity: .55;}
+      45%{ transform: scale(1.08); opacity: .92;}
+      100%{ transform: scale(0.86); opacity: .55;}
+    }
+
+    /* Sections */
+    section{padding: 84px 0;}
+    .sectionTitle{
+      font-size: 20px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin: 0 0 18px 0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card{
+      background: rgba(17,21,32,.72);
+      border:1px solid rgba(215,227,246,.12);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.18);
+      min-height: 190px;
+    }
+
+    .thumb{
+      width:100%;
+      height: 150px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(143,178,255,.22), rgba(120,255,220,.12));
+      border:1px solid rgba(215,227,246,.10);
+      margin-bottom: 12px;
+      overflow:hidden;
+      position:relative;
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      opacity:.92;
+      filter:saturate(1.05) contrast(1.03);
+    }
+    .card h3{margin:0 0 8px 0; font-size:16px;}
+    .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.45;}
+    .metaRow{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;}
+    .pill{
+      font-size:12px;
+      color: rgba(233,238,246,.88);
+      border:1px solid rgba(215,227,246,.14);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+    }
+
+    /* About */
+    .aboutGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .label{color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.08em}
+    .listItem{
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(215,227,246,.10);
+    }
+    .listItem:last-child{border-bottom:none}
+    .value{margin-top:6px; line-height:1.45; color: rgba(233,238,246,.92); font-size:14px;}
+    .value b{color:rgba(233,238,246,1)}
+
+    /* Cool maps strip */
+    .strip{
+      display:flex;
+      gap: 14px;
+      overflow:auto;
+      padding-bottom: 10px;
+      scroll-snap-type:x mandatory;
+    }
+    .strip::-webkit-scrollbar{height: 10px}
+    .strip::-webkit-scrollbar-thumb{background: rgba(215,227,246,.14); border-radius: 999px}
+    .mini{
+      min-width: 280px;
+      height: 170px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(215,227,246,.12);
+      scroll-snap-align:start;
+      position:relative;
+      overflow:hidden;
+    }
+    .mini img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      opacity:.92;
+    }
+    .mini span{
+      position:absolute;
+      left:14px;
+      bottom:12px;
+      color: rgba(233,238,246,.90);
+      font-size:13px;
+      background: rgba(11,13,16,.55);
+      border:1px solid rgba(215,227,246,.16);
+      padding: 6px 10px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+    }
+
+    /* Make room so pinned map doesn't cover content */
+    body.isShrunk main{
+      padding-right: min(48vw, 580px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1020px){
+      .heroGrid{grid-template-columns: 1fr;}
+      .heroRight{justify-content:stretch}
+      .mapFrame{width:100%; height: min(72vh, 520px);}
+      body.isShrunk .mapFrame{
+        width: calc(100vw - 36px);
+        height: min(42vh, 340px);
+        right: 18px;
+        left: 18px;
+      }
+      body.isShrunk main{padding-right:0;}
+      .grid{grid-template-columns: 1fr;}
+      .aboutGrid{grid-template-columns: 1fr;}
+      h1{font-size: 42px;}
+    }
+  </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <a class="brand" href="/">AG</a>
-    <nav class="nav">
-      <a href="/projects/">Projects</a>
-      <a href="/viz/">Visualizations</a>
-      <a href="/about/">About</a>
-    </nav>
-  </header>
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero" id="hero">
+      <div class="heroGrid">
+        <div class="heroLeft">
+          <div class="kicker">Urban Spatial Analytics • Smart Cities • Spatial Data</div>
+          <h1>Anaushka Goyal</h1>
+          <p class="tagline">Geospatial intelligence that drives real decisions.</p>
+          <div class="typed" id="typed"></div>
 
-  <!-- HERO -->
-  <section class="hero" id="top" aria-label="Hero">
-    <canvas id="heroCanvas"></canvas>
+          <div class="ctaRow">
+            <a class="btn" href="#projects">Projects</a>
+            <a class="btn" href="#about">About</a>
+            <a class="btn" href="#coolmaps">Cool maps</a>
+          </div>
+        </div>
 
-    <div class="hero-overlay">
-      <div class="hero-kicker">Philadelphia · Spatial signals</div>
-      <h1 class="hero-title">Anaushka Goyal</h1>
-
-      <!-- typed line -->
-      <p class="hero-tagline" aria-label="Tagline">
-        <span id="typed"></span><span class="caret" aria-hidden="true"></span>
-      </p>
-
-      <button class="scrollhint" id="scrollBtn" type="button" aria-label="Scroll to intro">
-        Scroll ↓
-      </button>
-    </div>
-  </section>
-
-  <!-- NEXT SECTION (forced scroll target) -->
-  <section class="intro" id="intro" aria-label="Intro">
-    <div class="intro-inner">
-      <h2>Hi, I’m Anaushka.</h2>
-      <p>
-        I build geospatial systems that turn complex urban data into clear, decision-ready intelligence—
-        blending spatial analytics with design.
-      </p>
-
-      <div class="tiles">
-        <a class="tile" href="/projects/">
-          <div class="tile-title">Projects</div>
-          <div class="tile-sub">End-to-end analytics, dashboards, decision support.</div>
-        </a>
-
-        <a class="tile" href="/viz/">
-          <div class="tile-title">Visualizations</div>
-          <div class="tile-sub">Maps, infographics, spatial storytelling.</div>
-        </a>
-
-        <a class="tile" href="/about/">
-          <div class="tile-title">About</div>
-          <div class="tile-sub">Background, skills, and what I’m building next.</div>
-        </a>
+        <div class="heroRight">
+          <div class="mapFrame" id="mapFrame" aria-label="Map visualization">
+            <svg id="viz" role="img" aria-label="Map with pulsing rings"></svg>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </header>
+  </div>
 
-  <script src="/assets/hero.js"></script>
+  <main>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="sectionTitle">Projects</div>
+        <div class="grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="sectionTitle">About</div>
+        <div class="aboutGrid">
+          <div class="card">
+            <div class="label">Education</div>
+            <div class="listItem">
+              <div class="value"><b>UPenn MCP (’26)</b> — Urban Spatial Analytics / Smart Cities</div>
+            </div>
+
+            <div class="label" style="margin-top:14px;">Skills</div>
+            <div class="listItem">
+              <div class="value"><b>Geospatial:</b> ArcGIS Pro/Online, QGIS, spatial joins, indexing, networks</div>
+            </div>
+            <div class="listItem">
+              <div class="value"><b>Data:</b> R (sf/tidyverse/tidycensus), Python (pandas/geopandas), SQL/PostGIS</div>
+            </div>
+            <div class="listItem">
+              <div class="value"><b>Design:</b> narrative mapping, dashboards, clean visual systems</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="label">Work Experience</div>
+            <div class="listItem">
+              <div class="value"><b>Research Assistant</b> — Philadelphia school facilities planning, mapping, dashboards</div>
+            </div>
+            <div class="listItem">
+              <div class="value"><b>Real Estate & Development Intern</b> — municipal zoning analysis, data standardization</div>
+            </div>
+
+            <div class="label" style="margin-top:14px;">Volunteering</div>
+            <div class="listItem">
+              <div class="value">Urban Tech Club • civic engagement work • conference and research coordination</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COOL MAPS -->
+    <section id="coolmaps">
+      <div class="wrap">
+        <div class="sectionTitle">Cool maps</div>
+        <div class="strip" id="coolStrip"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script>
+    /* =========================
+       1) HERO TEXT SEQUENCE
+       ========================= */
+    const typedEl = document.getElementById("typed");
+    const lines = ["emerge", "breathe", "…", "Geospatial intelligence that drives real decisions."];
+    let idx = 0;
+    function typeSequence(){
+      typedEl.textContent = lines[idx];
+      idx = (idx + 1) % lines.length;
+      setTimeout(typeSequence, idx === 0 ? 1400 : 900);
+    }
+    typeSequence();
+
+    /* =========================
+       2) SCROLL BEHAVIOR:
+          after hero leaves view -> shrink map
+       ========================= */
+    const hero = document.getElementById("hero");
+    const obs = new IntersectionObserver((entries) => {
+      const inView = entries[0].isIntersecting;
+      document.body.classList.toggle("isShrunk", !inView);
+    }, { threshold: 0.2 });
+    obs.observe(hero);
+
+    /* =========================
+       3) PROJECTS + COOL MAPS (DATA-DRIVEN)
+       Replace with your real items
+       ========================= */
+    const PROJECTS = [
+      {
+        title: "Philadelphia Signals — Spatial Join + Categorization",
+        desc: "Joined city signals to neighborhood boundaries and translated raw counts into legible spatial patterns.",
+        tags: ["R", "sf", "GeoJSON"],
+        thumb: "" // optional image path like "assets/thumb1.jpg"
+      },
+      {
+        title: "School–Community Dashboard Mapping",
+        desc: "Built planning-ready visual narratives that translate complex facility decisions into public-facing clarity.",
+        tags: ["Mapping", "Dashboards", "Storytelling"],
+        thumb: ""
+      },
+      {
+        title: "Zoning Atlas Data Standardization",
+        desc: "Systematized municipal zoning updates into consistent, comparable geospatial and policy-ready records.",
+        tags: ["Data Model", "Research", "QA"],
+        thumb: ""
+      }
+    ];
+
+    const COOL_MAPS = [
+      { label: "Emotional Mapping", img: "" },
+      { label: "Transit + Risk Index", img: "" },
+      { label: "Zoning Atlas", img: "" },
+      { label: "Data-Art Experiments", img: "" }
+    ];
+
+    function renderProjects(){
+      const grid = document.getElementById("projectsGrid");
+      grid.innerHTML = PROJECTS.map(p => `
+        <div class="card">
+          <div class="thumb">
+            ${p.thumb ? `<img src="${p.thumb}" alt="${p.title} thumbnail" />` : ``}
+          </div>
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          <div class="metaRow">
+            ${p.tags.map(t => `<div class="pill">${t}</div>`).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderCoolMaps(){
+      const strip = document.getElementById("coolStrip");
+      strip.innerHTML = COOL_MAPS.map(m => `
+        <div class="mini">
+          ${m.img ? `<img src="${m.img}" alt="${m.label}" />` : ``}
+          <span>${m.label}</span>
+        </div>
+      `).join("");
+    }
+
+    renderProjects();
+    renderCoolMaps();
+
+    /* =========================
+       4) MAP + PULSING RINGS
+          - Solid rings (no glow)
+          - Projection corrected with fitSize()
+          - Rings continue pulsing always
+       ========================= */
+
+    // IMPORTANT: replace these with RAW GitHub URLs (not the repo page URL)
+    const DATA_URLS = {
+      boundary: "PASTE_BOUNDARY_GEOJSON_RAW_URL_HERE",
+      points:   "PASTE_POINTS_GEOJSON_RAW_URL_HERE"
+    };
+
+    const svg = d3.select("#viz");
+    const g = svg.append("g");
+
+    let width, height, projection, path;
+
+    function resize(){
+      const frame = document.getElementById("mapFrame");
+      width = frame.clientWidth;
+      height = frame.clientHeight;
+      svg.attr("viewBox", `0 0 ${width} ${height}`);
+
+      if (window.__boundaryGeojson){
+        // Projection is always correct because it fits to your boundary geometry.
+        projection = d3.geoMercator().fitSize([width, height], window.__boundaryGeojson);
+        path = d3.geoPath(projection);
+        renderMap();
+      }
+    }
+    window.addEventListener("resize", resize);
+
+    // Helper: safe numeric extraction
+    function num(v){
+      const x = Number(v);
+      return Number.isFinite(x) ? x : 0;
+    }
+
+    // Category mapping (poetic but sharp):
+    // We’ll compute three intensities from tabE/lapE/phoneE.
+    // If your fields are named differently, rename here.
+    function getIntensityProps(feature){
+      const p = feature.properties || {};
+      const tab = num(p.tabE);
+      const lap = num(p.lapE);
+      const pho = num(p.phoneE);
+
+      // Normalize-ish: small stable mapping (avoid massive radii)
+      // If your counts are huge, we’ll adjust later.
+      const a = Math.sqrt(tab + 1);
+      const b = Math.sqrt(lap + 1);
+      const c = Math.sqrt(pho + 1);
+
+      return { a, b, c };
+    }
+
+    function renderMap(){
+      g.selectAll("*").remove();
+
+      // Boundary
+      g.append("path")
+        .datum(window.__boundaryGeojson)
+        .attr("class", "land")
+        .attr("d", path);
+
+      g.append("path")
+        .datum(window.__boundaryGeojson)
+        .attr("class", "outline")
+        .attr("d", path);
+
+      // Points (FeatureCollection of Points)
+      const features = (window.__pointsGeojson && window.__pointsGeojson.features) ? window.__pointsGeojson.features : [];
+
+      const rings = g.append("g");
+
+      // Compute a scale for radii based on data range (so it behaves across datasets)
+      const intensities = features.map(f => {
+        const {a,b,c} = getIntensityProps(f);
+        return Math.max(a,b,c);
+      });
+
+      const maxI = d3.max(intensities) || 1;
+      const r = d3.scaleLinear().domain([0, maxI]).range([7, 22]);
+
+      // Primary ring: tabE
+      rings.selectAll("circle.r1")
+        .data(features)
+        .enter()
+        .append("circle")
+        .attr("class", "ring pulse fast")
+        .attr("cx", d => projection(d.geometry.coordinates)[0])
+        .attr("cy", d => projection(d.geometry.coordinates)[1])
+        .attr("r", d => {
+          const {a} = getIntensityProps(d);
+          return r(a);
+        });
+
+      // Secondary ring: lapE
+      rings.selectAll("circle.r2")
+        .data(features)
+        .enter()
+        .append("circle")
+        .attr("class", "ring secondary pulse")
+        .attr("cx", d => projection(d.geometry.coordinates)[0])
+        .attr("cy", d => projection(d.geometry.coordinates)[1])
+        .attr("r", d => {
+          const {b} = getIntensityProps(d);
+          return r(b) + 6;
+        });
+
+      // Tertiary ring: phoneE
+      rings.selectAll("circle.r3")
+        .data(features)
+        .enter()
+        .append("circle")
+        .attr("class", "ring tertiary pulse slow")
+        .attr("cx", d => projection(d.geometry.coordinates)[0])
+        .attr("cy", d => projection(d.geometry.coordinates)[1])
+        .attr("r", d => {
+          const {c} = getIntensityProps(d);
+          return r(c) + 12;
+        });
+    }
+
+    async function loadData(){
+      const [boundary, points] = await Promise.all([
+        fetch(DATA_URLS.boundary).then(r => r.json()),
+        fetch(DATA_URLS.points).then(r => r.json())
+      ]);
+
+      window.__boundaryGeojson = boundary;
+      window.__pointsGeojson = points;
+
+      resize();
+    }
+
+    loadData().catch(err => {
+      console.error(err);
+      typedEl.textContent = "Map not loading — paste your raw GeoJSON URLs into DATA_URLS.";
+    });
+  </script>
 </body>
 </html>
