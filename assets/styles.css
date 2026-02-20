@@ -117,7 +117,7 @@ body{
 
 /* SECTION LAYOUT like the reference: text columns, no boxes */
 .section{
-  padding: 92px clamp(24px, 6vw, 96px);
+  padding: 44px clamp(24px, 6vw, 96px);
 }
 .grid3{
   display:grid;
@@ -162,7 +162,7 @@ summary::-webkit-details-marker{display:none}
 
 /* Horizontal scroller (Projects + Maps) */
 .scroller{
-  margin-top: 16px;
+  margin-top: 10px;
   overflow-x:auto;
   overflow-y:hidden;
   white-space:nowrap;
@@ -205,4 +205,40 @@ summary::-webkit-details-marker{display:none}
 @media (max-width: 900px){
   .hero-overlay{max-width: 92vw;}
   .grid3{grid-template-columns: 1fr; gap: 22px;}
+}
+
+.footer{
+  padding: 22px clamp(24px, 6vw, 96px);
+  background:#000;
+}
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+}
+.f-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color: rgba(255,255,255,.9);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-size: 13px;
+}
+.footer-right{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+}
+.f-icon{
+  color: rgba(255,255,255,.85);
+  text-decoration:none;
+}
+.f-icon:hover, .f-link:hover{ color:#fff; }
+.icon{
+  width: 18px;
+  height: 18px;
+  display:block;
+  opacity:.9;
 }
