@@ -81,8 +81,8 @@ function projectToScreen(points) {
   const cx = (minX + maxX) / 2;
   const cy = (minY + maxY) / 2;
 
-  const ox = W / 2;
-  const oy = H / 2;
+  const ox = W * 0.68;  // push map right
+  const oy = H * 0.52;  // slightly down for balance
 
   for (const p of points) {
     p.x = (p.lon - cx) * s + ox;
