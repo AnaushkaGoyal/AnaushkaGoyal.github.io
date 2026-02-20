@@ -203,12 +203,12 @@ summary::-webkit-details-marker{display:none}
 
 
 .footer{
-  padding: 26px clamp(24px, 6vw, 96px);
+  padding: 30px clamp(24px, 6vw, 96px);
   background:#000;
 }
 
 .footer-line{
-  height: 1px;
+  height: 1.5px;
   width: 100%;
   background: rgba(255,255,255,0.18);
   margin-bottom: 18px;
@@ -218,7 +218,7 @@ summary::-webkit-details-marker{display:none}
   display:flex;
   justify-content:flex-end; /* icons on right like your ref */
   align-items:center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .fi{
@@ -230,8 +230,8 @@ summary::-webkit-details-marker{display:none}
 }
 
 .fi svg{
-  width: 18px;
-  height: 18px;
+  width: 30px;
+  height: 30px;
   display:block;
 }
 
