@@ -1,5 +1,5 @@
 // ===== Config (edit if needed) =====
-const DATA_URL = "/data/pa_signals.geojson";
+const DATA_URL = "https://raw.githubusercontent.com/AnaushkaGoyal/AnaushkaGoyal.github.io/refs/heads/main/data/pa_signals.geojson";
 const FIELDS = { tab: "tabE", lap: "lapE", phone: "phoneE" };
 
 const COLORS = {
@@ -210,9 +210,9 @@ function frame(now) {
 
   // background
   ctx.clearRect(0,0,W,H);
-  ctx.fillStyle = "#0b0f14";
+  ctx.fillStyle = "#000";
   ctx.fillRect(0,0,W,H);
-  drawVignette();
+  
 
   // start typing at time
   if (ms >= TYPE_AT_MS) startTyping();
