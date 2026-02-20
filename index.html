@@ -1,1 +1,68 @@
-Hello, I'm Anaushka.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anaushka Goyal | Geospatial Portfolio</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">AG</a>
+    <nav class="nav">
+      <a href="/projects/">Projects</a>
+      <a href="/viz/">Visualizations</a>
+      <a href="/about/">About</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top" aria-label="Hero">
+    <canvas id="heroCanvas"></canvas>
+
+    <div class="hero-overlay">
+      <div class="hero-kicker">Philadelphia · Spatial signals</div>
+      <h1 class="hero-title">Anaushka Goyal</h1>
+
+      <!-- typed line -->
+      <p class="hero-tagline" aria-label="Tagline">
+        <span id="typed"></span><span class="caret" aria-hidden="true"></span>
+      </p>
+
+      <button class="scrollhint" id="scrollBtn" type="button" aria-label="Scroll to intro">
+        Scroll ↓
+      </button>
+    </div>
+  </section>
+
+  <!-- NEXT SECTION (forced scroll target) -->
+  <section class="intro" id="intro" aria-label="Intro">
+    <div class="intro-inner">
+      <h2>Hi, I’m Anaushka.</h2>
+      <p>
+        I build geospatial systems that turn complex urban data into clear, decision-ready intelligence—
+        blending spatial analytics with design.
+      </p>
+
+      <div class="tiles">
+        <a class="tile" href="/projects/">
+          <div class="tile-title">Projects</div>
+          <div class="tile-sub">End-to-end analytics, dashboards, decision support.</div>
+        </a>
+
+        <a class="tile" href="/viz/">
+          <div class="tile-title">Visualizations</div>
+          <div class="tile-sub">Maps, infographics, spatial storytelling.</div>
+        </a>
+
+        <a class="tile" href="/about/">
+          <div class="tile-title">About</div>
+          <div class="tile-sub">Background, skills, and what I’m building next.</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script src="/assets/hero.js"></script>
+</body>
+</html>
