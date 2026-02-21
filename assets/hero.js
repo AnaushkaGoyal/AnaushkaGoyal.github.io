@@ -20,7 +20,7 @@ const RANGES = {
 const BLANK_MS = 500;         // blank screen
 const EMERGE_WINDOW_MS = 1500; // how long waves appear
 const PULSE_START_MS = 2300;  // when breathing clearly starts
-const TYPE_AT_MS = 200;      // when typed line begins
+const TYPE_AT_MS = 300;      // when typed line begins
 const PULSE_AMPLITUDE = 0.028; // 2.8% pulse
 
 const CYCLE_MS = 5000;      // total cycle per point
@@ -139,7 +139,7 @@ function startTyping() {
   typedStarted = true;
   typedEl.textContent = "";
   let i = 0;
-  const speed = 0.6; // ms per char
+  const speed = 0.9; // ms per char
   const tick = () => {
     typedEl.textContent = TAGLINE.slice(0, i);
     i++;
