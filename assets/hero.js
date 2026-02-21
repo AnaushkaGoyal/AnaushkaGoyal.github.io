@@ -11,9 +11,9 @@ const COLORS = {
 
 // ring radius range (pixels)
 const RANGES = {
-  tab:   { min: 0.5, max: 10 },
-  lap:   { min: 1.5, max: 8.0 },
-  phone: { min: 2.0, max: 6.5 }
+  tab:   { min: 0.3, max: 10 },
+  lap:   { min: 1.0, max: 8.0 },
+  phone: { min: 1.5, max: 6.5 }
 };
 
 // emergence + breathing
