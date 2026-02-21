@@ -45,6 +45,15 @@ h1{
   line-height: 1.05;
 }
 
+h1 .subtitle{
+  display:block;
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: 400;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-top: 10px;
+}
 .kicker{
   color: var(--muted2);
   letter-spacing: .14em;
@@ -108,21 +117,19 @@ h1{
 
 .grid2{
   display:grid;
-  grid-template-columns: 1fr 0.72fr;
+  grid-template-columns: 1fr minmax(420px, 560px);
   gap: 28px;
   align-items:start;
   margin-top: 18px;
 }
 
 .vert{
-  width:100%;
-  border:none;
+  width: 100%;
+  height: clamp(460px, 62vh, 720px);
+  border: 1px solid var(--line);
   background:#050505;
   display:block;
-
-  height: 520px;        /* controls size */
-  max-height: 520px;
-  object-fit: contain;  /* THIS prevents cropping */
+  object-fit: contain;   /* shows full image, no crop */
 }
 
 .list{
@@ -165,7 +172,7 @@ h1{
 }
 
 @media (max-width: 900px){
-  .stack{grid-template-columns: 1fr}
-  .thumb{height: auto}
+  .stack{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr}
   .vert{height: auto; max-height: none}
 }
