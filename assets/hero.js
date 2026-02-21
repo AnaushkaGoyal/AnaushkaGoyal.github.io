@@ -11,16 +11,16 @@ const COLORS = {
 
 // ring radius range (pixels)
 const RANGES = {
-  tab:   { min: 2.0, max: 7.5 },
+  tab:   { min: 1.0, max: 12 },
   lap:   { min: 2.5, max: 9.0 },
-  phone: { min: 3.0, max: 11.0 }
+  phone: { min: 3.0, max: 7.5 }
 };
 
 // emergence + breathing
 const BLANK_MS = 500;         // blank screen
 const EMERGE_WINDOW_MS = 1500; // how long waves appear
 const PULSE_START_MS = 2300;  // when breathing clearly starts
-const TYPE_AT_MS = 5000;      // when typed line begins
+const TYPE_AT_MS = 2200;      // when typed line begins
 const PULSE_AMPLITUDE = 0.028; // 2.8% pulse
 
 const CYCLE_MS = 5000;      // total cycle per point
@@ -110,9 +110,9 @@ function drawRing(x, y, r, color, glowBoost=1) {
   // glow pass
   ctx.save();
   ctx.strokeStyle = color;
-  ctx.lineWidth = 1.0;
+  ctx.lineWidth = 0.8;
   ctx.shadowColor = color;
-  ctx.shadowBlur = 3 * glowBoost;
+  ctx.shadowBlur = 1 * glowBoost;
   ctx.globalAlpha = 1;
   ctx.beginPath();
   ctx.arc(x, y, r, 0, Math.PI*2);
