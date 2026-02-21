@@ -31,7 +31,7 @@ a{color:inherit}
 }
 
 .wrap{
-  padding: 20px clamp(14px, 2.8vw, 44px) 40px;
+  padding: 22px clamp(22px, 4vw, 72px) 40px;
   max-width: 1600px;
   margin: 0 auto;
 }
@@ -68,6 +68,7 @@ h1 .subtitle{
   gap: 18px;
   align-items: center;
   margin-top: 16px;
+  width: 100%;
 }
 
 .video{
@@ -117,7 +118,7 @@ h1 .subtitle{
 
 .grid2{
   display:grid;
-  grid-template-columns: 1fr minmax(420px, 560px);
+  grid-template-columns: 1fr 520px;
   gap: 28px;
   align-items:start;
   margin-top: 18px;
@@ -125,11 +126,11 @@ h1 .subtitle{
 
 .vert{
   width: 100%;
-  height: clamp(460px, 62vh, 720px);
+  height: 560px;
   border: 1px solid var(--line);
   background:#050505;
   display:block;
-  object-fit: contain;   /* shows full image, no crop */
+  object-fit: contain;
 }
 
 .list{
@@ -171,8 +172,8 @@ h1 .subtitle{
   font-size: 12px;
 }
 
-@media (max-width: 900px){
+@media (max-width: 1100px){
   .stack{grid-template-columns:1fr}
-  .grid2{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr 420px}
   .vert{height: auto; max-height: none}
 }
