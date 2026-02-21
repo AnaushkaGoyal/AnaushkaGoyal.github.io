@@ -11,7 +11,7 @@ const COLORS = {
 
 // ring radius range (pixels)
 const RANGES = {
-  tab:   { min: 1.0, max: 12 },
+  tab:   { min: 1.0, max: 11 },
   lap:   { min: 2.5, max: 9.0 },
   phone: { min: 3.0, max: 7.5 }
 };
@@ -20,7 +20,7 @@ const RANGES = {
 const BLANK_MS = 500;         // blank screen
 const EMERGE_WINDOW_MS = 1500; // how long waves appear
 const PULSE_START_MS = 2300;  // when breathing clearly starts
-const TYPE_AT_MS = 2200;      // when typed line begins
+const TYPE_AT_MS = 500;      // when typed line begins
 const PULSE_AMPLITUDE = 0.028; // 2.8% pulse
 
 const CYCLE_MS = 5000;      // total cycle per point
@@ -139,7 +139,7 @@ function startTyping() {
   typedStarted = true;
   typedEl.textContent = "";
   let i = 0;
-  const speed = 10; // ms per char
+  const speed = 0.6; // ms per char
   const tick = () => {
     typedEl.textContent = TAGLINE.slice(0, i);
     i++;
@@ -194,7 +194,7 @@ async function loadData() {
     const bLap = binIndex(d.lap, cutsLap);
     const bPhone = binIndex(d.phone, cutsPhone);
 
-    const k = 5; // bins-1
+    const k = 6; // bins-1
     const rTab   = lerp(RANGES.tab.min,   RANGES.tab.max,   bTab / k);
     const rLap   = lerp(RANGES.lap.min,   RANGES.lap.max,   bLap / k);
     const rPhone = lerp(RANGES.phone.min, RANGES.phone.max, bPhone / k);
