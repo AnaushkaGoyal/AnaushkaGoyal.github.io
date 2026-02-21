@@ -68,7 +68,7 @@ body{
 }
 .hero-kicker{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  font-size:12px;
+  font-size:14px;
   letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--muted);
@@ -76,7 +76,7 @@ body{
 }
 .hero-title{
   margin:0;
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: clamp(36px, 5vw, 72px);
   letter-spacing:-.02em;
   line-height:1.0;
 }
