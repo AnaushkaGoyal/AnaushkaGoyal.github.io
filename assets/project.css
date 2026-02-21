@@ -145,14 +145,18 @@ h1 .subtitle{
   margin-top: 18px;
 }
 
-/* Vertical image: FIT (no cropping) at a readable size */
+/* Align vertical image cleanly with top of text */
+.grid2 > div:last-child{
+  display:flex;
+  align-items:flex-start;
+}
+
 .vert{
-  width:100%;
-  border: 1px solid var(--line);
-  background:#050505;
-  display:block;
-  height: 560px;        /* readable */
-  object-fit: contain;  /* fits full image, no crop */
+  width: 100%;
+  max-height: 700px;     /* limits size without forcing crop */
+  height: auto;          /* natural aspect ratio */
+  object-fit: contain;   /* never crop */
+  display: block;
 }
 
 /* Lists + links */
