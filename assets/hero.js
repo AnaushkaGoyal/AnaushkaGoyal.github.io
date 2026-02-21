@@ -10,21 +10,24 @@ const COLORS = {
 
 
 // ring radius range (pixels)
-const R_MIN = 1.2;
-const R_MAX = 12.0;
+const RANGES = {
+  tab:   { min: 2.0, max: 7.5 },
+  lap:   { min: 2.5, max: 9.0 },
+  phone: { min: 3.0, max: 11.0 }
+};
 
 // emergence + breathing
-const BLANK_MS = 700;         // blank screen
-const EMERGE_WINDOW_MS = 1700; // how long waves appear
-const PULSE_START_MS = 2600;  // when breathing clearly starts
-const TYPE_AT_MS = 5200;      // when typed line begins
+const BLANK_MS = 500;         // blank screen
+const EMERGE_WINDOW_MS = 1500; // how long waves appear
+const PULSE_START_MS = 2300;  // when breathing clearly starts
+const TYPE_AT_MS = 5000;      // when typed line begins
 const PULSE_AMPLITUDE = 0.028; // 2.8% pulse
 
-const CYCLE_MS = 5200;      // total cycle per point
+const CYCLE_MS = 5000;      // total cycle per point
 const FADE_IN_MS = 1200;    // fade in duration
 const FADE_OUT_MS = 1600;   // fade out duration
 
-const TAGLINE = "Geospatial intelligence that drives real decisions.";
+const TAGLINE = "I translate urban complexity into spatial clarity.";
 
 // ===== Canvas setup =====
 const canvas = document.getElementById("heroCanvas");
@@ -192,9 +195,9 @@ async function loadData() {
     const bPhone = binIndex(d.phone, cutsPhone);
 
     const k = 5; // bins-1
-    const rTab = lerp(R_MIN, R_MAX, bTab / k);
-    const rLap = lerp(R_MIN, R_MAX, bLap / k);
-    const rPhone = lerp(R_MIN, R_MAX, bPhone / k);
+    const rTab   = lerp(RANGES.tab.min,   RANGES.tab.max,   bTab / k);
+    const rLap   = lerp(RANGES.lap.min,   RANGES.lap.max,   bLap / k);
+    const rPhone = lerp(RANGES.phone.min, RANGES.phone.max, bPhone / k);
 
     // random emergence wave
     const delay = BLANK_MS + Math.random() * EMERGE_WINDOW_MS;
