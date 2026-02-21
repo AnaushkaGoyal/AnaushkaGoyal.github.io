@@ -78,7 +78,7 @@ h1{
   border: 1px solid var(--line);
   background:#050505;
   display:block;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
@@ -108,10 +108,10 @@ h1{
 
 .vert{
   width:100%;
-  border: 1px solid var(--line);
+  border:none;
   background:#050505;
   display:block;
-  aspect-ratio: 3 / 5;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
 }
 
