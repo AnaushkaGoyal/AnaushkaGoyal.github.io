@@ -22,8 +22,9 @@ a{color:inherit}
   top:0;
   z-index:30;
   background:#000;
-  padding:18px clamp(16px, 3.5vw, 56px);
+  padding:18px clamp(22px, 4vw, 72px);
 }
+
 .brand{
   text-decoration:none;
   font-weight:600;
@@ -173,7 +174,21 @@ h1 .subtitle{
 }
 
 @media (max-width: 1100px){
-  .stack{grid-template-columns:1fr}
-  .grid2{grid-template-columns:1fr 420px}
-  .vert{height: auto; max-height: none}
+  .wrap{
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .stack{
+    grid-template-columns: 1fr;
+  }
+
+  .grid2{
+    grid-template-columns: 1fr;   /* IMPORTANT */
+  }
+
+  .vert{
+    height: auto;
+    max-height: none;
+  }
 }
