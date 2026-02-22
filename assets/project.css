@@ -350,17 +350,52 @@ h1 .subtitle{
 /* Project 4 – Boston Regression */
 /* ============================= */
 
-/* Make Project 4 follow Project 3 research styling */
-.project-boston .researchHero,
-.project-boston .quickFacts,
-.project-boston .heroFigure,
-.project-boston .sideFigure,
-.project-boston .figCard,
-.project-boston .cap,
-.project-boston .figGrid,
-.project-boston .researchSection{
-  /* no overrides needed; keep consistent spacing */
+
+.project-boston .heroGrid{ display:none; } /* ensure no video/3-image hero */
+
+.project-boston .researchHero{
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 18px;
 }
+
+.project-boston .researchMeta .p{
+  max-width: 72ch;
+}
+
+/* 4 “boxes” (same as Project 3) */
+.project-boston .quickFacts{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.project-boston .fact{
+  padding: 12px 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 10px;
+}
+
+.project-boston .factK{
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 6px;
+}
+
+.project-boston .factV{
+  font-size: 14px;
+  color: rgba(255,255,255,.88);
+  line-height: 1.4;
+}
+
+/* Figures (readable, no cropping, no “box border”) */
+.project-boston figure{ margin: 0; }
 
 .project-boston .fig{
   width: 100%;
@@ -371,30 +406,52 @@ h1 .subtitle{
   object-fit: contain;
 }
 
-/* Match Project 3 grid behavior */
-.project-boston .researchHero{
-  display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 28px;
-  align-items: start;
-  margin-top: 18px;
-}
-
-.project-boston .quickFacts{
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.project-boston .heroFigure{
+/* Cards around figures (same language as Project 3) */
+.project-boston .heroFigure,
+.project-boston .sideFigure,
+.project-boston .figCard{
   padding: 14px;
   background: rgba(255,255,255,.03);
   border: 1px solid rgba(255,255,255,.10);
   border-radius: 12px;
 }
 
+.project-boston .cap{
+  margin-top: 10px;
+  color: var(--muted2);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.project-boston .researchSection{
+  margin-top: 34px;
+}
+
+/* If you have a grid of figures later */
+.project-boston .figGrid{
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Keep narrative proportion similar to Project 3 */
+.project-boston .grid2{
+  grid-template-columns: 1fr 0.85fr;
+}
+
+/* Responsive */
 @media (max-width: 900px){
-  .project-boston .researchHero{ grid-template-columns: 1fr; }
-  .project-boston .quickFacts{ grid-template-columns: 1fr; }
+  .project-boston .researchHero{
+    grid-template-columns: 1fr;
+  }
+  .project-boston .figGrid{
+    grid-template-columns: 1fr;
+  }
+  .project-boston .quickFacts{
+    grid-template-columns: 1fr;
+  }
+  .project-boston .grid2{
+    grid-template-columns: 1fr;
+  }
 }
