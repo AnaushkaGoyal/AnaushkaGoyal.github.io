@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Charlotte Housing Model | Anaushka Goyal</title>
+
+  <!-- your shared project styling -->
+  <link rel="stylesheet" href="/assets/project.css" />
+  <!-- project-specific overrides (this file below) -->
+  <link rel="stylesheet" href="./p05.css" />
+</head>
+
+<body class="project-charlotte">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Home">AG</a>
+  </header>
+
+  <main class="wrap">
+    <div class="kicker">Project</div>
+
+    <h1>
+      Charlotte Housing Modeling
+      <span class="subtitle">Midterm • Spatial + Regression Workflow</span>
+    </h1>
+
+    <!-- INTRO -->
+    <section class="lead" aria-label="Project overview">
+      <div class="sectionTitle">What this study does</div>
+      <p class="p">
+        This project builds a compact modeling workflow to explain housing price variation using neighborhood,
+        accessibility, and amenity indicators. The focus is on interpretation and model quality: selecting a reasonable
+        specification, checking assumptions, and understanding where the model performs well (and where it doesn’t).
+      </p>
+
+      <!-- 4 BOXES (like project 3) -->
+      <div class="cards" aria-label="Summary cards">
+        <div class="card">
+          <div class="cardLabel">Focus</div>
+          <div class="cardValue">Multivariate housing-price modeling</div>
+        </div>
+
+        <div class="card">
+          <div class="cardLabel">Methods</div>
+          <div class="cardValue">Feature exploration, correlation checks, OLS + diagnostics</div>
+        </div>
+
+        <div class="card">
+          <div class="cardLabel">Spatial work</div>
+          <div class="cardValue">Mapped predictors + neighborhood context variables</div>
+        </div>
+
+        <div class="card">
+          <div class="cardLabel">Tools</div>
+          <div class="cardValue">R (modeling + visualization)</div>
+        </div>
+      </div>
+
+      <a class="reportLink" href="./Mid_term.html" target="_blank" rel="noreferrer">
+        View full technical report
+      </a>
+    </section>
+
+    <!-- FIGURES / OUTPUTS -->
+    <section class="figures" aria-label="Key outputs">
+      <div class="sectionTitle">Key outputs</div>
+
+      <div class="gallery">
+        <!-- keep these paths exactly as in your folder -->
+        <figure class="fig">
+          <img class="figImg" src="./Mid_term_files/figure-html/Correlation%20Matrix-1.png" alt="Correlation matrix" loading="lazy">
+          <figcaption class="figCap">Correlation matrix (predictor relationships)</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <img class="figImg" src="./Mid_term_files/figure-html/Scatter%20Plots-1.png" alt="Scatter plots" loading="lazy">
+          <figcaption class="figCap">Scatter plots (shape + linearity checks)</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <img class="figImg" src="./Mid_term_files/figure-html/Map%201%20-%20Home%20Pricing-1.png" alt="Map: home pricing" loading="lazy">
+          <figcaption class="figCap">Map 1: home pricing (spatial pattern)</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <img class="figImg" src="./Mid_term_files/figure-html/Map%202%20-%20Park%20Density-1.png" alt="Map: park density" loading="lazy">
+          <figcaption class="figCap">Map 2: park density</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <img class="figImg" src="./Mid_term_files/figure-html/Map%203%20-%20Schools-1.png" alt="Map: schools" loading="lazy">
+          <figcaption class="figCap">Map 3: schools</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <img class="figImg" src="./Mid_term_files/figure-html/Map%204%20-%20Bubble%20Map%20of%20Income...-1.png" alt="Map: income bubble map" loading="lazy">
+          <figcaption class="figCap">Map 4: income (bubble map)</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <img class="figImg" src="./Mid_term_files/figure-html/Residual%20Analysis-1.png" alt="Residual analysis" loading="lazy">
+          <figcaption class="figCap">Residual analysis (error structure)</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <img class="figImg" src="./Mid_term_files/figure-html/residual_diagnostics-1.png" alt="Residual diagnostics" loading="lazy">
+          <figcaption class="figCap">Residual diagnostics (assumptions)</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <img class="figImg" src="./Mid_term_files/figure-html/Discussing%20the%20Best%20Model-1.png" alt="Model selection summary" loading="lazy">
+          <figcaption class="figCap">Model selection summary</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© Anaushka Goyal</div>
+      <a href="/" class="fileLink">Back to home</a>
+    </div>
+  </main>
+</body>
+</html>

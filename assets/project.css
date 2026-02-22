@@ -455,3 +455,98 @@ h1 .subtitle{
     grid-template-columns: 1fr;
   }
 }
+
+/* ========================= */
+/* Project 5 – Charlotte CSS */
+/* ========================= */
+
+.project-charlotte .lead{
+  margin-top: 22px;
+}
+
+.project-charlotte .cards{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 1200px;
+}
+
+.project-charlotte .card{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+  border-radius: 18px;
+  padding: 18px 18px;
+}
+
+.project-charlotte .cardLabel{
+  color: var(--muted2);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.project-charlotte .cardValue{
+  color: var(--fg);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.project-charlotte .reportLink{
+  display: inline-block;
+  margin-top: 18px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.35);
+  padding-bottom: 2px;
+  color: rgba(255,255,255,.92);
+  font-size: 14px;
+}
+
+.project-charlotte .reportLink:hover{
+  border-bottom-color:#fff;
+  color:#fff;
+}
+
+/* Gallery */
+.project-charlotte .figures{
+  margin-top: 34px;
+}
+
+.project-charlotte .gallery{
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+}
+
+/* Keep images readable but NEVER oversized */
+.project-charlotte .fig{
+  margin: 0;
+  border: 1px solid var(--line);
+  background: #050505;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.project-charlotte .figImg{
+  width: 100%;
+  height: 340px;          /* “reasonable size” */
+  object-fit: contain;    /* no cropping */
+  display: block;
+}
+
+.project-charlotte .figCap{
+  margin-top: 10px;
+  color: var(--muted2);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .project-charlotte .cards{ grid-template-columns: 1fr; }
+  .project-charlotte .gallery{ grid-template-columns: 1fr; }
+  .project-charlotte .figImg{ height: 300px; }
+}
