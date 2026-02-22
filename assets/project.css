@@ -97,6 +97,7 @@ h1 .subtitle{
   background:#050505;
   display:block;
   object-fit: cover;
+  border: none;
 }
 
 /* 3 images row below video */
@@ -111,7 +112,7 @@ h1 .subtitle{
 
 .thumb{
   width:100%;
-  border: 1px solid var(--line);
+  border: none;
   background:#050505;
   display:block;
   aspect-ratio: 16 / 9; /* keeps your landscape images clean */
@@ -157,6 +158,7 @@ h1 .subtitle{
   height: auto;          /* natural aspect ratio */
   object-fit: contain;   /* never crop */
   display: block;
+  border: none;
 }
 
 /* Lists + links */
@@ -234,4 +236,111 @@ h1 .subtitle{
 
 .project-corridor .stack{
   place-items: center;
+}
+
+/* ============================= */
+/* Project 3 – Research Layout   */
+/* ============================= */
+
+.project-bikeshare .heroGrid{ display:none; } /* safety: no video/3-image hero */
+
+.project-bikeshare .researchHero{
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+.project-bikeshare .researchMeta .p{
+  max-width: 72ch;
+}
+
+.project-bikeshare .quickFacts{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.project-bikeshare .fact{
+  padding: 12px 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 10px;
+}
+
+.project-bikeshare .factK{
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 6px;
+}
+
+.project-bikeshare .factV{
+  font-size: 14px;
+  color: rgba(255,255,255,.88);
+  line-height: 1.4;
+}
+
+.project-bikeshare figure{
+  margin: 0;
+}
+
+.project-bikeshare .fig{
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #050505;
+  border: none;              /* removes “box” */
+  object-fit: contain;       /* research figures should be fully readable */
+}
+
+.project-bikeshare .heroFigure,
+.project-bikeshare .sideFigure,
+.project-bikeshare .figCard{
+  padding: 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+}
+
+.project-bikeshare .cap{
+  margin-top: 10px;
+  color: var(--muted2);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.project-bikeshare .researchSection{
+  margin-top: 34px;
+}
+
+.project-bikeshare .figGrid{
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Make the narrative right column image behave like a figure */
+.project-bikeshare .grid2{
+  grid-template-columns: 1fr 0.85fr;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .project-bikeshare .researchHero{
+    grid-template-columns: 1fr;
+  }
+  .project-bikeshare .figGrid{
+    grid-template-columns: 1fr;
+  }
+  .project-bikeshare .quickFacts{
+    grid-template-columns: 1fr;
+  }
+  .project-bikeshare .grid2{
+    grid-template-columns: 1fr;
+  }
 }
