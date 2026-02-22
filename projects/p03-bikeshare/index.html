@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bike Share Demand Forecasting | Anaushka Goyal</title>
+  <link rel="stylesheet" href="/assets/project.css" />
+</head>
+
+<body class="project-bikeshare">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Home">AG</a>
+  </header>
+
+  <main class="wrap">
+    <div class="kicker">Project</div>
+
+    <h1>
+      Bike Share Demand Forecasting
+      <span class="subtitle">Space–Time Prediction + Rebalancing Insight · Capital Bikeshare (Washington, DC)</span>
+    </h1>
+
+    <!-- Research header (no video) -->
+    <section class="researchHero" aria-label="Key result">
+      <div class="researchMeta">
+        <div class="sectionTitle">What this study does</div>
+        <p class="p">
+          This project builds a demand forecasting workflow for bike share systems using time-based patterns,
+          weather signals, and lagged ridership to predict near-term trip volume and station pressure.
+          The goal is operational: support smarter rebalancing by anticipating when and where demand spikes.
+        </p>
+
+        <div class="quickFacts" aria-label="Quick facts">
+          <div class="fact">
+            <div class="factK">Focus</div>
+            <div class="factV">Demand forecasting + operational rebalancing</div>
+          </div>
+          <div class="fact">
+            <div class="factK">Methods</div>
+            <div class="factV">Space–time features, lag variables, model evaluation</div>
+          </div>
+          <div class="fact">
+            <div class="factK">GIS</div>
+            <div class="factV">Spatial joins + neighborhood context variables</div>
+          </div>
+          <div class="fact">
+            <div class="factK">Tools</div>
+            <div class="factV">Python · (GIS/Spatial workflow)</div>
+          </div>
+        </div>
+
+        <div class="files" aria-label="Links">
+          <a class="fileLink" href="./Assignment_5.html" target="_blank" rel="noreferrer">View full technical report</a>
+        </div>
+      </div>
+
+      <figure class="heroFigure">
+        <img class="fig"
+             src="./Assignment_5_files/figure-html/obs_pred_all-1.png"
+             alt="Observed vs predicted demand: model performance overview">
+        <figcaption class="cap">
+          Model performance overview: observed vs predicted demand across the study period.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Outputs -->
+    <section class="researchSection" aria-label="Research outputs">
+      <div class="sectionTitle">Key outputs</div>
+
+      <div class="figGrid">
+        <figure class="figCard">
+          <img class="fig" src="./Assignment_5_files/figure-html/trip_timeseries-1.png" alt="Trips over time time series">
+          <figcaption class="cap">Ridership time series capturing baseline demand and volatility.</figcaption>
+        </figure>
+
+        <figure class="figCard">
+          <img class="fig" src="./Assignment_5_files/figure-html/plot_weather-1.png" alt="Weather relationship plot">
+          <figcaption class="cap">Weather sensitivity: how conditions relate to ridership changes.</figcaption>
+        </figure>
+
+        <figure class="figCard">
+          <img class="fig" src="./Assignment_5_files/figure-html/plot_errors_by_model-1.png" alt="Errors by model comparison">
+          <figcaption class="cap">Model comparison using error metrics to select the best-performing approach.</figcaption>
+        </figure>
+
+        <figure class="figCard">
+          <img class="fig" src="./Assignment_5_files/figure-html/errors_by_station-1.png" alt="Station-level errors">
+          <figcaption class="cap">Station-level error patterns highlight where predictions are most uncertain.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Narrative -->
+    <section class="researchSection" aria-label="Narrative">
+      <div class="grid2">
+        <div>
+          <div class="sectionTitle">Problem</div>
+          <p class="p">
+            Bike share systems fail when demand is misaligned with supply: stations become empty (no bikes) or full (no docks).
+            Forecasting demand helps operators rebalance proactively instead of reacting after failures occur.
+          </p>
+
+          <div class="sectionTitle">Approach</div>
+          <ul class="list">
+            <li>Engineer time features (hour/day patterns) and lagged demand signals.</li>
+            <li>Integrate weather and calendar effects to capture external demand drivers.</li>
+            <li>Evaluate performance using observed vs predicted comparisons and station-level error behavior.</li>
+          </ul>
+
+          <div class="sectionTitle">GIS + Spatial Context</div>
+          <p class="p">
+            The workflow incorporates spatial context by associating ridership/station dynamics with neighborhood-level
+            conditions (e.g., access, surrounding land-use or socio-economic proxies) to interpret where forecasting is harder
+            and where operations are most sensitive.
+          </p>
+
+          <div class="sectionTitle">What this demonstrates</div>
+          <ul class="list">
+            <li><b>Technical depth:</b> feature engineering, modeling, evaluation, and interpretation.</li>
+            <li><b>Modeling:</b> time-sensitive prediction and error diagnostics.</li>
+            <li><b>GIS:</b> spatial joins and place-based analysis to contextualize operational outcomes.</li>
+          </ul>
+
+          <div class="files" aria-label="Links (repeat)">
+            <a class="fileLink" href="./Assignment_5.html" target="_blank" rel="noreferrer">Open full technical report</a>
+          </div>
+        </div>
+
+        <div>
+          <figure class="sideFigure">
+            <img class="fig"
+                 src="./Assignment_5_files/figure-html/station_summary-1.png"
+                 alt="Station summary figure">
+            <figcaption class="cap">
+              Station summary: ridership distribution and station behavior used to interpret operational pressure.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© Anaushka Goyal</div>
+      <a href="/" class="fileLink">Back to home</a>
+    </div>
+  </main>
+</body>
+</html>
