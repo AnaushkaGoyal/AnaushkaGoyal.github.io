@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Land Cover Change + Development Forecasting | Anaushka Goyal</title>
+  <link rel="stylesheet" href="/assets/project.css" />
+</head>
+
+<body class="project-landuse">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Home">AG</a>
+  </header>
+
+  <main class="wrap">
+    <div class="kicker">Project</div>
+
+    <h1>
+      Land Cover Change + Development Forecasting
+      <span class="subtitle">Charlotte MSA · Spatial modeling workflow</span>
+    </h1>
+
+    <!-- Research-style hero (no video) -->
+    <section class="researchHero" aria-label="Project overview">
+      <div class="researchMeta">
+        <div class="sectionTitle">Objective</div>
+        <p class="p">
+          This project builds a spatial forecasting workflow to understand <b>where development is likely to occur</b>
+          in the Charlotte metropolitan region, based on land cover change patterns and neighborhood context.
+          The goal is planning-oriented: translate remote sensing + census + infrastructure signals into
+          an interpretable model and map of likely near-term change.
+        </p>
+
+        <div class="quickFacts" aria-label="Quick facts">
+          <div class="fact">
+            <div class="factK">Focus</div>
+            <div class="factV">Land cover → development change prediction</div>
+          </div>
+          <div class="fact">
+            <div class="factK">Methods</div>
+            <div class="factV">Fishnet features · spatial lag · model evaluation</div>
+          </div>
+          <div class="fact">
+            <div class="factK">GIS</div>
+            <div class="factV">Distance to highways · land cover rasters · mapped outputs</div>
+          </div>
+          <div class="fact">
+            <div class="factK">Tools</div>
+            <div class="factV">R (sf / raster workflow) · reproducible HTML report</div>
+          </div>
+        </div>
+
+        <a class="fileLink" href="./Assignment_5_Charlotte_Cleaned.html" target="_blank" rel="noreferrer">
+          View full technical report
+        </a>
+      </div>
+
+      <!-- A small, readable “cover” figure (optional). If you don’t want it, delete this whole <figure>. -->
+      <figure class="miniFigure" aria-label="Cover figure">
+        <img class="miniImg" src="./cover.jpg" alt="Project cover image">
+        <figcaption class="cap">Study region context and forecasting workflow outputs.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Main narrative + side figures -->
+    <section class="researchBody grid2" aria-label="Project write-up">
+      <div>
+        <div class="sectionTitle">Aim</div>
+        <p class="p">
+          I set up an end-to-end pipeline that converts “messy” regional datasets into a consistent spatial unit
+          (a grid), then builds and evaluates a model to estimate where development pressure concentrates.
+          The deliverable is not just a model output, but a planning-readable explanation of what variables
+          matter, where the model performs well, and what it implies for regional growth.
+        </p>
+
+        <div class="sectionTitle">Approach</div>
+        <p class="p">
+          The workflow standardizes the region into a fishnet grid and assembles predictors at that grid scale:
+          land cover composition, distance to highways, and neighborhood effects using a spatial lag of development.
+          Population was also translated to the grid using areal-weighted interpolation so that demographic context
+          could be compared consistently across space.:contentReference[oaicite:4]{index=4}:contentReference[oaicite:5]{index=5}
+        </p>
+        <p class="p">
+          A key design choice here is interpretability: each feature maps back to a planning logic
+          (access, adjacency, existing intensity, and developable land). That makes the final prediction map easier
+          to explain and critique, instead of feeling like a black box.
+        </p>
+
+        <div class="sectionTitle">GIS + Spatial context</div>
+        <p class="p">
+          Transportation access is a major part of the story in Charlotte: highways structure regional connectivity,
+          while transit expansion is debated as growth accelerates. In the analysis, highway vectors were brought into
+          the same spatial frame and used to generate accessibility features (e.g., distance signals) that can be tested
+          against observed change patterns.:contentReference[oaicite:6]{index=6}:contentReference[oaicite:7]{index=7}
+        </p>
+
+        <div class="sectionTitle">Results</div>
+        <p class="p">
+          The model outputs a spatial pattern of expected development that concentrates strongly in Mecklenburg County,
+          aligning with where major employment and infrastructure anchors sit. This creates a practical planning takeaway:
+          some parts of the region behave like “growth magnets,” while other areas show weaker signals unless land-use
+          transition happens first.:contentReference[oaicite:8]{index=8}
+        </p>
+        <p class="p">
+          The workflow also surfaced an important land-cover insight: a large share of observed change occurred in “other
+          undeveloped” categories, which may hide environmentally sensitive landscapes (including wetlands). That matters
+          because it changes how “developable” land should be interpreted and where extra safeguards may be needed.:contentReference[oaicite:9]{index=9}
+        </p>
+
+        <div class="sectionTitle">What I accomplished</div>
+        <ul class="list">
+          <li>Built a grid-based dataset that aligns census, infrastructure, and land cover into one spatial unit.</li>
+          <li>Implemented areal-weighted interpolation to translate tract population into fishnet estimates.</li>
+          <li>Engineered spatial predictors (distance/access + neighborhood lag effects) and explored their relationships.</li>
+          <li>Generated prediction maps and evaluation visuals to communicate performance and spatial patterning.</li>
+          <li>Converted technical outputs into planning recommendations grounded in the model’s limits and strengths.</li>
+        </ul>
+
+        <div class="sectionTitle">Recommendations</div>
+        <p class="p">
+          Based on the forecasting pattern and the regional context, the write-up argues for a phased approach to transit
+          investment (starting with high-signal connections) and for TOD-supportive financing tools (e.g., station-area
+          value capture). It also flags wetlands risk as a likely “hidden cost” of development change, recommending tighter
+          local protection where state protections have weakened.:contentReference[oaicite:10]{index=10}:contentReference[oaicite:11]{index=11}
+        </p>
+
+        <div class="files" aria-label="Downloads">
+          <a class="fileLink" href="./Assignment_5_Charlotte_Cleaned.html" target="_blank" rel="noreferrer">
+            Open full report (HTML)
+          </a>
+        </div>
+      </div>
+
+      <!-- Side figures (readable, not huge) -->
+      <div class="sideStack" aria-label="Key figures">
+        <figure class="sideFig">
+          <img class="sideImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/MSA-1.png" alt="Charlotte MSA context map">
+          <figcaption class="cap">Study area: Charlotte MSA boundary and context.</figcaption>
+        </figure>
+
+        <figure class="sideFig">
+          <img class="sideImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/Load%20Land%20Cover-1.png" alt="Land cover inputs">
+          <figcaption class="cap">Land cover inputs used to quantify developable / undeveloped patterns.</figcaption>
+        </figure>
+
+        <figure class="sideFig">
+          <img class="sideImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/Feature%20Exploration-1.png" alt="Feature exploration plots">
+          <figcaption class="cap">Feature exploration: how predictors relate to observed development change.</figcaption>
+        </figure>
+
+        <figure class="sideFig">
+          <img class="sideImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/roc_curve-1.png" alt="ROC curve for model evaluation">
+          <figcaption class="cap">Model evaluation: ROC curve (classification performance overview).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Small maps grid (kept reasonable) -->
+    <section aria-label="Maps and outputs">
+      <div class="sectionTitle">Maps</div>
+
+      <div class="miniGrid">
+        <div class="miniCard">
+          <img class="miniImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/map%20of%20predictions-1.png" alt="Map of predictions">
+          <div class="cap">Predicted development change surface.</div>
+        </div>
+
+        <div class="miniCard">
+          <img class="miniImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/showing%20predictions%20by%20threshold-1.png" alt="Predictions by threshold">
+          <div class="cap">Prediction classification shown at different thresholds.</div>
+        </div>
+
+        <div class="miniCard">
+          <img class="miniImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/Distance%20to%20Highways%20one-1.png" alt="Distance to highways">
+          <div class="cap">Accessibility feature: distance to highways.</div>
+        </div>
+
+        <div class="miniCard">
+          <img class="miniImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/spatial%20lag%20Plot-1.png" alt="Spatial lag plot">
+          <div class="cap">Neighborhood effect: spatial lag signal.</div>
+        </div>
+
+        <!-- Transit line images (if you want them; delete any you don’t like) -->
+        <div class="miniCard">
+          <img class="miniImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/Public%20transit%20line-1.png" alt="Public transit line map 1">
+          <div class="cap">Transit scenario mapping output.</div>
+        </div>
+
+        <div class="miniCard">
+          <img class="miniImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/Public%20transit%20line-2.png" alt="Public transit line map 2">
+          <div class="cap">Transit scenario mapping output.</div>
+        </div>
+
+        <div class="miniCard">
+          <img class="miniImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/Public%20transit%20line-3.png" alt="Public transit line map 3">
+          <div class="cap">Transit scenario mapping output.</div>
+        </div>
+
+        <div class="miniCard">
+          <img class="miniImg" src="./Assignment_5_Charlotte_Cleaned_files/figure-html/Public%20transit%20line-4.png" alt="Public transit line map 4">
+          <div class="cap">Transit scenario mapping output.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© Anaushka Goyal</div>
+      <a href="/" class="fileLink">Back to home</a>
+    </div>
+  </main>
+</body>
+</html>

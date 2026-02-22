@@ -579,3 +579,125 @@ h1 .subtitle{
   .project-charlotte .miniImg{ height: 240px; }
   .project-charlotte .sideImg{ height: 220px; }
 }
+
+/* ============================= */
+/* Project 6 – Landuse (Research) */
+/* ============================= */
+
+.project-landuse .heroGrid{ display:none; } /* ensure no video hero */
+
+.project-landuse .researchHero{
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+/* 4 boxes — same style language as Project 3 */
+.project-landuse .quickFacts{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.project-landuse .fact{
+  padding: 12px 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 10px;
+}
+
+.project-landuse .factK{
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 6px;
+}
+
+.project-landuse .factV{
+  font-size: 14px;
+  color: rgba(255,255,255,.88);
+  line-height: 1.4;
+}
+
+/* Cover figure (kept readable, not huge) */
+.project-landuse figure{ margin: 0; }
+
+.project-landuse .miniFigure{
+  padding: 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+}
+
+.project-landuse .miniImg{
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  border: none;
+}
+
+.project-landuse .cap{
+  margin-top: 10px;
+  color: var(--muted2);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Main body: text left, figures right */
+.project-landuse .researchBody{
+  margin-top: 28px;
+}
+
+.project-landuse .sideStack{
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.project-landuse .sideFig{
+  padding: 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+}
+
+.project-landuse .sideImg{
+  width: 100%;
+  height: 220px;        /* readable */
+  object-fit: contain;  /* no cropping */
+  display: block;
+  background: transparent;
+  border: none;
+}
+
+/* Maps grid */
+.project-landuse .miniGrid{
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+  max-width: 1200px;
+}
+
+.project-landuse .miniCard{
+  padding: 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .project-landuse .researchHero{ grid-template-columns: 1fr; }
+  .project-landuse .quickFacts{ grid-template-columns: 1fr; }
+  .project-landuse .grid2{ grid-template-columns: 1fr; }
+  .project-landuse .miniGrid{ grid-template-columns: 1fr; }
+  .project-landuse .miniImg{ height: 280px; }
+  .project-landuse .sideImg{ height: 260px; }
+}
