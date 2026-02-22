@@ -350,6 +350,28 @@ h1 .subtitle{
 /* Project 4 – Boston Regression */
 /* ============================= */
 
+/* Make Project 4 follow Project 3 research styling */
+.project-boston .researchHero,
+.project-boston .quickFacts,
+.project-boston .heroFigure,
+.project-boston .sideFigure,
+.project-boston .figCard,
+.project-boston .cap,
+.project-boston .figGrid,
+.project-boston .researchSection{
+  /* no overrides needed; keep consistent spacing */
+}
+
+.project-boston .fig{
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #050505;
+  border: none;
+  object-fit: contain;
+}
+
+/* Match Project 3 grid behavior */
 .project-boston .researchHero{
   display: grid;
   grid-template-columns: 1fr 1.05fr;
@@ -365,38 +387,14 @@ h1 .subtitle{
   gap: 14px;
 }
 
-.project-boston .fig{
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  border: none;
-  background: #050505;
-}
-
-.project-boston .researchSection{
-  margin-top: 34px;
-}
-
-.project-boston .figGrid{
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.project-boston .grid2{
-  grid-template-columns: 1fr 0.9fr;
+.project-boston .heroFigure{
+  padding: 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
 }
 
 @media (max-width: 900px){
-  .project-boston .researchHero{
-    grid-template-columns: 1fr;
-  }
-  .project-boston .grid2{
-    grid-template-columns: 1fr;
-  }
-  .project-boston .quickFacts{
-    grid-template-columns: 1fr;
-  }
+  .project-boston .researchHero{ grid-template-columns: 1fr; }
+  .project-boston .quickFacts{ grid-template-columns: 1fr; }
 }
