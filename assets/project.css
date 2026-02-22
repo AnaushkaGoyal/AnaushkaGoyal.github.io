@@ -513,7 +513,7 @@ h1 .subtitle{
 
 .project-charlotte .miniImg{
   width: 100%;
-  height: 220px;
+  height: 300px;
   object-fit: contain;
   display: block;
   background: #050505;
@@ -547,7 +547,7 @@ h1 .subtitle{
 
 .project-charlotte .sideImg{
   width: 100%;
-  height: 170px;
+  height: 240px;
   object-fit: contain;
   display: block;
   background: #050505;
