@@ -456,97 +456,126 @@ h1 .subtitle{
   }
 }
 
-/* ========================= */
-/* Project 5 – Charlotte CSS */
-/* ========================= */
+/* ============================= */
+/* Project 5 – Charlotte (Research) */
+/* ============================= */
 
-.project-charlotte .lead{
-  margin-top: 22px;
+.project-charlotte .heroGrid{ display:none; } /* ensure no video hero */
+
+.project-charlotte .researchHero{
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 18px;
 }
 
-.project-charlotte .cards{
+.project-charlotte .researchMeta .p{ max-width: 72ch; }
+
+/* 4 boxes — same style language as Project 3 */
+.project-charlotte .quickFacts{
   margin-top: 18px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 14px;
-  max-width: 1200px;
 }
 
-.project-charlotte .card{
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.02);
-  border-radius: 18px;
-  padding: 18px 18px;
+.project-charlotte .fact{
+  padding: 12px 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 10px;
 }
 
-.project-charlotte .cardLabel{
-  color: var(--muted2);
-  letter-spacing: .14em;
+.project-charlotte .factK{
+  font-size: 11px;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  font-size: 12px;
-  margin-bottom: 8px;
+  color: var(--muted2);
+  margin-bottom: 6px;
 }
 
-.project-charlotte .cardValue{
-  color: var(--fg);
-  font-size: 18px;
-  line-height: 1.35;
-}
-
-.project-charlotte .reportLink{
-  display: inline-block;
-  margin-top: 18px;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.35);
-  padding-bottom: 2px;
-  color: rgba(255,255,255,.92);
+.project-charlotte .factV{
   font-size: 14px;
+  color: rgba(255,255,255,.88);
+  line-height: 1.4;
 }
 
-.project-charlotte .reportLink:hover{
-  border-bottom-color:#fff;
-  color:#fff;
+/* Small figures (no oversized visuals) */
+.project-charlotte figure{ margin: 0; }
+
+.project-charlotte .miniFigure{
+  padding: 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
 }
 
-/* Gallery */
-.project-charlotte .figures{
-  margin-top: 34px;
-}
-
-.project-charlotte .gallery{
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  max-width: 1200px;
-}
-
-/* Keep images readable but NEVER oversized */
-.project-charlotte .fig{
-  margin: 0;
-  border: 1px solid var(--line);
-  background: #050505;
-  border-radius: 14px;
-  padding: 12px;
-}
-
-.project-charlotte .figImg{
+.project-charlotte .miniImg{
   width: 100%;
-  height: 340px;          /* “reasonable size” */
-  object-fit: contain;    /* no cropping */
+  height: 220px;
+  object-fit: contain;
   display: block;
+  background: #050505;
+  border: none;
 }
 
-.project-charlotte .figCap{
+.project-charlotte .cap{
   margin-top: 10px;
   color: var(--muted2);
   font-size: 12px;
   line-height: 1.5;
 }
 
+/* Main body: text left, figures right (small stack) */
+.project-charlotte .researchBody{
+  margin-top: 28px;
+}
+
+.project-charlotte .sideStack{
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.project-charlotte .sideFig{
+  padding: 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+}
+
+.project-charlotte .sideImg{
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  display: block;
+  background: #050505;
+  border: none;
+}
+
+/* Small maps row */
+.project-charlotte .miniGrid{
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+  max-width: 1200px;
+}
+
+.project-charlotte .miniCard{
+  padding: 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+}
+
 /* Responsive */
 @media (max-width: 900px){
-  .project-charlotte .cards{ grid-template-columns: 1fr; }
-  .project-charlotte .gallery{ grid-template-columns: 1fr; }
-  .project-charlotte .figImg{ height: 300px; }
+  .project-charlotte .researchHero{ grid-template-columns: 1fr; }
+  .project-charlotte .quickFacts{ grid-template-columns: 1fr; }
+  .project-charlotte .grid2{ grid-template-columns: 1fr; }
+  .project-charlotte .miniGrid{ grid-template-columns: 1fr; }
+  .project-charlotte .miniImg{ height: 240px; }
+  .project-charlotte .sideImg{ height: 220px; }
 }

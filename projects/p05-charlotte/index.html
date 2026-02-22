@@ -3,12 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Charlotte Housing Model | Anaushka Goyal</title>
-
-  <!-- your shared project styling -->
+  <title>Charlotte Housing Modeling | Anaushka Goyal</title>
   <link rel="stylesheet" href="/assets/project.css" />
-  <!-- project-specific overrides (this file below) -->
-  <link rel="stylesheet" href="./p05.css" />
 </head>
 
 <body class="project-charlotte">
@@ -21,95 +17,156 @@
 
     <h1>
       Charlotte Housing Modeling
-      <span class="subtitle">Midterm • Spatial + Regression Workflow</span>
+      <span class="subtitle">Spatial predictors + Regression diagnostics</span>
     </h1>
 
-    <!-- INTRO -->
-    <section class="lead" aria-label="Project overview">
-      <div class="sectionTitle">What this study does</div>
-      <p class="p">
-        This project builds a compact modeling workflow to explain housing price variation using neighborhood,
-        accessibility, and amenity indicators. The focus is on interpretation and model quality: selecting a reasonable
-        specification, checking assumptions, and understanding where the model performs well (and where it doesn’t).
-      </p>
+    <!-- Research-style header -->
+    <section class="researchHero" aria-label="Project summary">
+      <div class="researchMeta">
+        <div class="sectionTitle">What this study does</div>
+        <p class="p">
+          This project tests how neighborhood and amenity variables relate to housing prices using a regression workflow.
+          The goal is not “just to run a model,” but to build a defensible specification, check assumptions, and interpret
+          where the model performs well (and where it breaks down).
+        </p>
 
-      <!-- 4 BOXES (like project 3) -->
-      <div class="cards" aria-label="Summary cards">
-        <div class="card">
-          <div class="cardLabel">Focus</div>
-          <div class="cardValue">Multivariate housing-price modeling</div>
+        <!-- 4 boxes (Project 3 style) -->
+        <div class="quickFacts" aria-label="Quick facts">
+          <div class="fact">
+            <div class="factK">Focus</div>
+            <div class="factV">Housing price variation + model quality</div>
+          </div>
+
+          <div class="fact">
+            <div class="factK">Methods</div>
+            <div class="factV">EDA, correlation checks, OLS, residual diagnostics</div>
+          </div>
+
+          <div class="fact">
+            <div class="factK">GIS</div>
+            <div class="factV">Mapped predictors + spatial context interpretation</div>
+          </div>
+
+          <div class="fact">
+            <div class="factK">Tools</div>
+            <div class="factV">R (modeling + figures)</div>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="cardLabel">Methods</div>
-          <div class="cardValue">Feature exploration, correlation checks, OLS + diagnostics</div>
-        </div>
-
-        <div class="card">
-          <div class="cardLabel">Spatial work</div>
-          <div class="cardValue">Mapped predictors + neighborhood context variables</div>
-        </div>
-
-        <div class="card">
-          <div class="cardLabel">Tools</div>
-          <div class="cardValue">R (modeling + visualization)</div>
+        <div class="files" aria-label="Links">
+          <a class="fileLink" href="./Mid_term.html" target="_blank" rel="noreferrer">View full technical report</a>
         </div>
       </div>
 
-      <a class="reportLink" href="./Mid_term.html" target="_blank" rel="noreferrer">
-        View full technical report
-      </a>
+      <!-- Small side figure (not huge hero) -->
+      <figure class="miniFigure">
+        <a href="./Mid_term_files/figure-html/Correlation%20Matrix-1.png" target="_blank" rel="noreferrer">
+          <img class="miniImg" src="./Mid_term_files/figure-html/Correlation%20Matrix-1.png" alt="Correlation matrix" loading="lazy" decoding="async">
+        </a>
+        <figcaption class="cap">Correlation matrix used to screen predictor relationships.</figcaption>
+      </figure>
     </section>
 
-    <!-- FIGURES / OUTPUTS -->
-    <section class="figures" aria-label="Key outputs">
-      <div class="sectionTitle">Key outputs</div>
+    <!-- Narrative + small figures on the side -->
+    <section class="grid2 researchBody" aria-label="Narrative and figures">
+      <div>
+        <div class="sectionTitle">Aim</div>
+        <p class="p">
+          Build an interpretable model of housing prices using neighborhood-level predictors, while documenting the modeling
+          logic and validating assumptions through diagnostic checks.
+        </p>
 
-      <div class="gallery">
-        <!-- keep these paths exactly as in your folder -->
-        <figure class="fig">
-          <img class="figImg" src="./Mid_term_files/figure-html/Correlation%20Matrix-1.png" alt="Correlation matrix" loading="lazy">
-          <figcaption class="figCap">Correlation matrix (predictor relationships)</figcaption>
+        <div class="sectionTitle">Approach</div>
+        <ul class="list">
+          <li>Start with exploratory analysis to understand variable distributions and relationships.</li>
+          <li>Use correlation screening and scatter plots to avoid unstable specifications and obvious redundancy.</li>
+          <li>Fit an OLS regression model and evaluate performance using residual behavior rather than only fit metrics.</li>
+          <li>Compare model variants and justify the “best” specification based on interpretability + diagnostics.</li>
+        </ul>
+
+        <div class="sectionTitle">GIS + Spatial Context</div>
+        <p class="p">
+          The project treats price as a spatial outcome and uses mapped predictors (income patterns, school presence,
+          park density, and observed pricing patterns) to interpret results. Mapping is used as a diagnostic tool:
+          to check whether relationships are geographically consistent and where local context may be driving model error.
+        </p>
+
+        <div class="sectionTitle">Results</div>
+        <p class="p">
+          The final model is evaluated through residual diagnostics and error analysis to identify where assumptions hold and
+          where prediction/interpretation is less reliable. The outputs highlight which predictors align with price variation,
+          and where spatial structure suggests missing variables or non-linear processes.
+        </p>
+
+        <div class="files" aria-label="Links repeat">
+          <a class="fileLink" href="./Mid_term.html" target="_blank" rel="noreferrer">Open full report</a>
+        </div>
+      </div>
+
+      <!-- Right-side: small figures stacked -->
+      <aside class="sideStack" aria-label="Key figures (small)">
+        <figure class="sideFig">
+          <a href="./Mid_term_files/figure-html/Scatter%20Plots-1.png" target="_blank" rel="noreferrer">
+            <img class="sideImg" src="./Mid_term_files/figure-html/Scatter%20Plots-1.png" alt="Scatter plots" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="cap">Scatter plots for shape + linearity checks.</figcaption>
         </figure>
 
-        <figure class="fig">
-          <img class="figImg" src="./Mid_term_files/figure-html/Scatter%20Plots-1.png" alt="Scatter plots" loading="lazy">
-          <figcaption class="figCap">Scatter plots (shape + linearity checks)</figcaption>
+        <figure class="sideFig">
+          <a href="./Mid_term_files/figure-html/Residual%20Analysis-1.png" target="_blank" rel="noreferrer">
+            <img class="sideImg" src="./Mid_term_files/figure-html/Residual%20Analysis-1.png" alt="Residual analysis" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="cap">Residual analysis (error structure).</figcaption>
         </figure>
 
-        <figure class="fig">
-          <img class="figImg" src="./Mid_term_files/figure-html/Map%201%20-%20Home%20Pricing-1.png" alt="Map: home pricing" loading="lazy">
-          <figcaption class="figCap">Map 1: home pricing (spatial pattern)</figcaption>
+        <figure class="sideFig">
+          <a href="./Mid_term_files/figure-html/residual_diagnostics-1.png" target="_blank" rel="noreferrer">
+            <img class="sideImg" src="./Mid_term_files/figure-html/residual_diagnostics-1.png" alt="Residual diagnostics" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="cap">Diagnostics to validate assumptions.</figcaption>
         </figure>
 
-        <figure class="fig">
-          <img class="figImg" src="./Mid_term_files/figure-html/Map%202%20-%20Park%20Density-1.png" alt="Map: park density" loading="lazy">
-          <figcaption class="figCap">Map 2: park density</figcaption>
+        <figure class="sideFig">
+          <a href="./Mid_term_files/figure-html/Discussing%20the%20Best%20Model-1.png" target="_blank" rel="noreferrer">
+            <img class="sideImg" src="./Mid_term_files/figure-html/Discussing%20the%20Best%20Model-1.png" alt="Best model discussion" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="cap">Model selection summary.</figcaption>
+        </figure>
+      </aside>
+    </section>
+
+    <!-- Small maps row (still small, supportive, clickable) -->
+    <section class="researchSection" aria-label="Spatial outputs">
+      <div class="sectionTitle">Spatial outputs</div>
+
+      <div class="miniGrid">
+        <figure class="miniCard">
+          <a href="./Mid_term_files/figure-html/Map%201%20-%20Home%20Pricing-1.png" target="_blank" rel="noreferrer">
+            <img class="miniImg" src="./Mid_term_files/figure-html/Map%201%20-%20Home%20Pricing-1.png" alt="Map 1: Home pricing" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="cap">Home pricing (spatial pattern).</figcaption>
         </figure>
 
-        <figure class="fig">
-          <img class="figImg" src="./Mid_term_files/figure-html/Map%203%20-%20Schools-1.png" alt="Map: schools" loading="lazy">
-          <figcaption class="figCap">Map 3: schools</figcaption>
+        <figure class="miniCard">
+          <a href="./Mid_term_files/figure-html/Map%202%20-%20Park%20Density-1.png" target="_blank" rel="noreferrer">
+            <img class="miniImg" src="./Mid_term_files/figure-html/Map%202%20-%20Park%20Density-1.png" alt="Map 2: Park density" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="cap">Park density.</figcaption>
         </figure>
 
-        <figure class="fig">
-          <img class="figImg" src="./Mid_term_files/figure-html/Map%204%20-%20Bubble%20Map%20of%20Income...-1.png" alt="Map: income bubble map" loading="lazy">
-          <figcaption class="figCap">Map 4: income (bubble map)</figcaption>
+        <figure class="miniCard">
+          <a href="./Mid_term_files/figure-html/Map%203%20-%20Schools-1.png" target="_blank" rel="noreferrer">
+            <img class="miniImg" src="./Mid_term_files/figure-html/Map%203%20-%20Schools-1.png" alt="Map 3: Schools" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="cap">Schools.</figcaption>
         </figure>
 
-        <figure class="fig">
-          <img class="figImg" src="./Mid_term_files/figure-html/Residual%20Analysis-1.png" alt="Residual analysis" loading="lazy">
-          <figcaption class="figCap">Residual analysis (error structure)</figcaption>
-        </figure>
-
-        <figure class="fig">
-          <img class="figImg" src="./Mid_term_files/figure-html/residual_diagnostics-1.png" alt="Residual diagnostics" loading="lazy">
-          <figcaption class="figCap">Residual diagnostics (assumptions)</figcaption>
-        </figure>
-
-        <figure class="fig">
-          <img class="figImg" src="./Mid_term_files/figure-html/Discussing%20the%20Best%20Model-1.png" alt="Model selection summary" loading="lazy">
-          <figcaption class="figCap">Model selection summary</figcaption>
+        <!-- IMPORTANT: replace the filename below with your exact one from VS Code (copy/paste full name) -->
+        <figure class="miniCard">
+          <a href="./Mid_term_files/figure-html/REPLACE_WITH_EXACT_INCOME_FILENAME.png" target="_blank" rel="noreferrer">
+            <img class="miniImg" src="./Mid_term_files/figure-html/REPLACE_WITH_EXACT_INCOME_FILENAME.png" alt="Map 4: Income (bubble map)" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="cap">Income (bubble map).</figcaption>
         </figure>
       </div>
     </section>
