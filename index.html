@@ -183,6 +183,36 @@
     </a>
   </div>
 </footer>
+<script>
+document.querySelectorAll('.scroller').forEach(scroller => {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  scroller.addEventListener('mousedown', (e) => {
+    isDown = true;
+    scroller.classList.add('active');
+    startX = e.pageX - scroller.offsetLeft;
+    scrollLeft = scroller.scrollLeft;
+  });
+
+  scroller.addEventListener('mouseleave', () => {
+    isDown = false;
+  });
+
+  scroller.addEventListener('mouseup', () => {
+    isDown = false;
+  });
+
+  scroller.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scroller.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    scroller.scrollLeft = scrollLeft - walk;
+  });
+});
+</script>
 
 <script src="/assets/hero.js"></script>
 </body>

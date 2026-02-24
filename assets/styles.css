@@ -163,24 +163,49 @@ summary::-webkit-details-marker{display:none}
 /* Horizontal scroller (Projects + Maps) */
 .scroller{
   margin-top: 10px;
-  overflow-x:auto;
-  overflow-y:hidden;
-  white-space:nowrap;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none; /* Firefox */
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 14px; /* space for scrollbar */
 }
-.scroller::-webkit-scrollbar{display:none}
 
+/* Make items snap cleanly */
 .item{
-  display:inline-block;
-  vertical-align:top;
-  width: 240px;
-  margin-right: 18px;
-  scroll-snap-align:start;
-  text-decoration:none;
-  color:#fff;
+  display: inline-block;
+  scroll-snap-align: start;
 }
+
+/* --- Custom Horizontal Scrollbar --- */
+
+/* Chrome, Edge, Safari */
+.scroller::-webkit-scrollbar{
+  height: 6px;
+}
+
+.scroller::-webkit-scrollbar-track{
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+}
+
+.scroller::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.35);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.scroller::-webkit-scrollbar-thumb:hover{
+  background: rgba(255,255,255,0.6);
+}
+
+/* Firefox */
+.scroller{
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.35) rgba(255,255,255,0.06);
+}
+
 .thumb{
   width:100%;
   aspect-ratio: 1 / 1;

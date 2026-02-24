@@ -139,7 +139,7 @@ function startTyping() {
   typedStarted = true;
   typedEl.textContent = "";
   let i = 0;
-  const speed = 1.2; // ms per char
+  const speed = 1.7; // ms per char
   const tick = () => {
     typedEl.textContent = TAGLINE.slice(0, i);
     i++;
@@ -272,3 +272,4 @@ async function init() {
 init().catch((err) => {
   console.error(err);
 });
+
