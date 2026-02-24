@@ -172,22 +172,6 @@ summary::-webkit-details-marker{display:none}
   padding-bottom: 14px; /* space for scrollbar */
 }
 
-.item{
-  display:inline-block;
-  vertical-align:top;
-  width: 240px;
-  margin-right: 18px;
-  scroll-snap-align:start;
-  text-decoration:none;
-  color:#fff;
-}
-.thumb{
-  width:100%;
-  aspect-ratio: 1 / 1;
-  background:#0a0a0a;
-  display:block;
-}
-
 /* --- Custom Horizontal Scrollbar --- */
 
 /* Chrome, Edge, Safari */
@@ -215,6 +199,24 @@ summary::-webkit-details-marker{display:none}
   scrollbar-width: thin;
   scrollbar-color: rgba(255,255,255,0.35) rgba(255,255,255,0.06);
 }
+
+.item{
+  display:inline-block;
+  vertical-align:top;
+  width: 240px;
+  margin-right: 18px;
+  scroll-snap-align:start;
+  text-decoration:none;
+  color:#fff;
+}
+.thumb{
+  width:100%;
+  aspect-ratio: 1 / 1;
+  background:#0a0a0a;
+  display:block;
+}
+
+
 .caption{
   margin-top:10px;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
