@@ -137,14 +137,27 @@ let typedStarted = false;
 function startTyping() {
   if (typedStarted) return;
   typedStarted = true;
+
   typedEl.textContent = "";
   let i = 0;
-  const speed = 1.7; // ms per char
+  const speed = 6; // your faster speed
+
+  const caret = document.querySelector(".caret");
+
   const tick = () => {
     typedEl.textContent = TAGLINE.slice(0, i);
     i++;
-    if (i <= TAGLINE.length) setTimeout(tick, speed);
+
+    if (i <= TAGLINE.length) {
+      setTimeout(tick, speed);
+    } else {
+      // Remove caret when done
+      if (caret) {
+        caret.style.display = "none";
+      }
+    }
   };
+
   tick();
 }
 
