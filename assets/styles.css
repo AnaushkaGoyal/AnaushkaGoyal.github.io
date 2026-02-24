@@ -277,34 +277,40 @@ summary::-webkit-details-marker{display:none}
 }
 
 /* ============================= */
-/* About Section – Professional Clean Style */
+/* About Section – Clean Dark Professional */
 /* ============================= */
 
 #about-text {
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f2f2f2;               /* Clean off-white instead of grey */
+  line-height: 1.7;
 }
 
 #about-text .hlabel {
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.08em;
+  font-size: 13px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 14px;
-  opacity: 0.75;
+  margin-bottom: 16px;
+  color: #ffffff;               /* Pure white for section headers */
 }
 
 #about-text .p {
   font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 18px;   /* Adds breathing space between paragraphs */
-  color: #222;           /* Slightly softer than pure black */
+  margin-bottom: 20px;          /* More breathing room between paragraphs */
+  color: #f2f2f2;               /* Remove dull grey */
 }
 
-#about-text strong {
-  font-weight: 600;
+/* Add spacing between Analytical Capability points */
+#about-text .p strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+#about-text .p {
+  margin-bottom: 22px;          /* Adds vertical spacing between skill points */
 }
 
 #about-text .grid3 {
-  gap: 48px;   /* Increases space between columns */
+  gap: 64px;                    /* More professional column spacing */
 }
