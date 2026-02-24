@@ -275,3 +275,36 @@ summary::-webkit-details-marker{display:none}
   .hero-overlay{max-width: 92vw;}
   .grid3{grid-template-columns: 1fr; gap: 22px;}
 }
+
+/* ============================= */
+/* About Section – Professional Clean Style */
+/* ============================= */
+
+#about-text {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+#about-text .hlabel {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  opacity: 0.75;
+}
+
+#about-text .p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 18px;   /* Adds breathing space between paragraphs */
+  color: #222;           /* Slightly softer than pure black */
+}
+
+#about-text strong {
+  font-weight: 600;
+}
+
+#about-text .grid3 {
+  gap: 48px;   /* Increases space between columns */
+}
