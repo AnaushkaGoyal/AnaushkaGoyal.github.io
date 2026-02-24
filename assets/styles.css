@@ -277,40 +277,47 @@ summary::-webkit-details-marker{display:none}
 }
 
 /* ============================= */
-/* About Section – Clean Dark Professional */
+/* About Section – High Contrast Clean */
 /* ============================= */
 
 #about-text {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #ffffff;               /* Clean off-white instead of grey */
-  line-height: 1.7;
+  color: #ffffff;
 }
 
+/* Section Labels (ABOUT, EDUCATION, etc.) */
 #about-text .hlabel {
-  font-weight: 600;
   font-size: 13px;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 16px;
-  color: #ffffff;               /* Pure white for section headers */
+  margin-bottom: 18px;
+  color: #ffffff;
 }
 
+/* Paragraph Text */
 #about-text .p {
   font-size: 15px;
-  margin-bottom: 20px;          /* More breathing room between paragraphs */
-  color: #f2f2f2;               /* Remove dull grey */
+  line-height: 1.75;
+  margin-bottom: 24px;   /* More breathing room */
+  color: #eaeaea;        /* Bright neutral white */
+  max-width: 520px;      /* Makes reading more premium */
 }
 
-/* Add spacing between Analytical Capability points */
+/* Analytical Capabilities spacing */
 #about-text .p strong {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-weight: 600;
 }
 
+/* Extra space between capability blocks */
 #about-text .p {
-  margin-bottom: 22px;          /* Adds vertical spacing between skill points */
+  margin-bottom: 26px;
 }
 
+/* Column spacing */
 #about-text .grid3 {
-  gap: 64px;                    /* More professional column spacing */
+  gap: 72px;
 }
