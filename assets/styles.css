@@ -282,7 +282,7 @@ summary::-webkit-details-marker{display:none}
 
 #about-text {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #f2f2f2;               /* Clean off-white instead of grey */
+  color: #ffffff;               /* Clean off-white instead of grey */
   line-height: 1.7;
 }
 
