@@ -172,12 +172,6 @@ summary::-webkit-details-marker{display:none}
   padding-bottom: 14px; /* space for scrollbar */
 }
 
-/* Make items snap cleanly */
-.item{
-  display: inline-block;
-  scroll-snap-align: start;
-}
-
 /* --- Custom Horizontal Scrollbar --- */
 
 /* Chrome, Edge, Safari */
@@ -206,6 +200,15 @@ summary::-webkit-details-marker{display:none}
   scrollbar-color: rgba(255,255,255,0.35) rgba(255,255,255,0.06);
 }
 
+.item{
+  display:inline-block;
+  vertical-align:top;
+  width: 240px;
+  margin-right: 18px;
+  scroll-snap-align:start;
+  text-decoration:none;
+  color:#fff;
+}
 .thumb{
   width:100%;
   aspect-ratio: 1 / 1;
