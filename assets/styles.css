@@ -203,7 +203,7 @@ summary::-webkit-details-marker{display:none}
 .item{
   display:inline-block;
   vertical-align:top;
-  width: 240px;
+  width: 280px;
   margin-right: 18px;
   scroll-snap-align:start;
   text-decoration:none;
@@ -287,21 +287,21 @@ summary::-webkit-details-marker{display:none}
 
 /* Section Labels (ABOUT, EDUCATION, etc.) */
 #about-text .hlabel {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   color: #ffffff;
 }
 
 /* Paragraph Text */
 #about-text .p {
-  font-size: 12px;
-  line-height: 1.75;
-  margin-bottom: 24px;   /* More breathing room */
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;   /* More breathing room */
   color: #eaeaea;        /* Bright neutral white */
-  max-width: 520px;      /* Makes reading more premium */
+  max-width: 500px;      /* Makes reading more premium */
 }
 
 /* Analytical Capabilities spacing */

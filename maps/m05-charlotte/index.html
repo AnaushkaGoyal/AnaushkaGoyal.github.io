@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spatial Lag to 2011 Development | Maps | Anaushka Goyal</title>
+
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/project.css" />
+  <link rel="stylesheet" href="/assets/maps.css" />
+</head>
+
+<body class="mapDetailPage">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Home">AG</a>
+    <!-- no top nav on map detail pages -->
+  </header>
+
+  <main class="mapDetail">
+    <!-- LEFT: big map -->
+    <section class="mapPane" aria-label="Map view">
+      <img class="mapImage" src="./map.png" alt="Spatial lag to 2011 development map (quintile breaks) as fishnet centroids" />
+    </section>
+
+    <!-- RIGHT: text + skill boxes -->
+    <aside class="infoPane" aria-label="Map details">
+      <a class="backLink" href="/maps/">← Back to Maps</a>
+
+      <h1 class="mapH1">Spatial Lag to 2011 Development</h1>
+      <p class="mapP">
+        This map measures how close each fishnet cell is to 2011 development by computing a spatial lag distance
+        from cell centroids. Values are symbolized using quintile breaks to highlight areas with stronger proximity
+        effects versus areas that are more disconnected from existing development patterns.
+      </p>
+
+      <div class="skillsBlock" aria-label="Skills used">
+        <div class="skillsLabel">Skills used</div>
+        <div class="chips">
+          <span class="chip">Spatial data engineering</span>
+          <span class="chip">Fishnet / grid analysis</span>
+          <span class="chip">Distance / lag calculation</span>
+          <span class="chip">Cartographic design</span>
+        </div>
+      </div>
+
+      <div class="skillsBlock" aria-label="Methods">
+        <div class="skillsLabel">Methods</div>
+        <div class="chips">
+          <span class="chip">Centroid extraction</span>
+          <span class="chip">Spatial lag / neighborhood effects</span>
+          <span class="chip">Quintile classification</span>
+          <span class="chip">Thematic mapping</span>
+        </div>
+      </div>
+
+      <div class="skillsBlock" aria-label="Tools">
+        <div class="skillsLabel">Tools</div>
+        <div class="chips">
+          <span class="chip">RStudio</span>
+          <span class="chip">sf</span>
+          <span class="chip">tmap / ggplot</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>

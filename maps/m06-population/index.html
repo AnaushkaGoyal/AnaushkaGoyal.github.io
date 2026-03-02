@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Under-18 Internet Access | Maps | Anaushka Goyal</title>
+
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/project.css" />
+  <link rel="stylesheet" href="/assets/maps.css" />
+</head>
+
+<body class="mapDetailPage">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Home">AG</a>
+    <!-- no top nav on map detail pages -->
+  </header>
+
+  <main class="mapDetail">
+    <!-- LEFT: big map -->
+    <section class="mapPane" aria-label="Map view">
+      <img class="mapImage" src="./map.jpg" alt="Map of under-18 population and lack of internet access using radial glyphs" />
+    </section>
+
+    <!-- RIGHT: text + skill boxes -->
+    <aside class="infoPane" aria-label="Map details">
+      <a class="backLink" href="/maps/">← Back to Maps</a>
+
+      <h1 class="mapH1">Under-18 Internet Access</h1>
+      <p class="mapP">
+        A glyph-based map that visualizes where under-18 populations concentrate and where internet access is missing.
+        Each centroid is rendered as a rotated radial mark, built programmatically in R by generating angles in radians and
+        applying rotation transforms, so the pattern reads as both density and disparity.
+      </p>
+
+      <div class="skillsBlock" aria-label="Skills used">
+        <div class="skillsLabel">Skills used</div>
+        <div class="chips">
+          <span class="chip">Generative cartography</span>
+          <span class="chip">Geometric transforms</span>
+          <span class="chip">Data engineering</span>
+          <span class="chip">Cartographic layout</span>
+        </div>
+      </div>
+
+      <div class="skillsBlock" aria-label="Methods">
+        <div class="skillsLabel">Methods</div>
+        <div class="chips">
+          <span class="chip">Centroids + buffering</span>
+          <span class="chip">Radians + angle sequences</span>
+          <span class="chip">Rotation transforms</span>
+          <span class="chip">Layered symbology</span>
+        </div>
+      </div>
+
+      <div class="skillsBlock" aria-label="Tools">
+        <div class="skillsLabel">Tools</div>
+        <div class="chips">
+          <span class="chip">RStudio</span>
+          <span class="chip">sf</span>
+          <span class="chip">ggplot2</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>

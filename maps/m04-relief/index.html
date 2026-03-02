@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>3D Topography Map | Maps | Anaushka Goyal</title>
+
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/project.css" />
+  <link rel="stylesheet" href="/assets/maps.css" />
+</head>
+
+<body class="mapDetailPage">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Home">AG</a>
+    <!-- no top nav on map detail pages -->
+  </header>
+
+  <main class="mapDetail">
+    <!-- LEFT: big map -->
+    <section class="mapPane" aria-label="Map view">
+      <!-- If your file is map.png, change src="./map.jpg" to src="./map.png" -->
+      <img class="mapImage" src="./map.jpg" alt="3D topography map with shaded relief and road network overlay" />
+    </section>
+
+    <!-- RIGHT: text + skill boxes -->
+    <aside class="infoPane" aria-label="Map details">
+      <a class="backLink" href="/maps/">← Back to Maps</a>
+
+      <h1 class="mapH1">3D Topography Map</h1>
+      <p class="mapP">
+        A 3D shaded-relief surface paired with a road-network overlay to reveal how terrain structure and connectivity
+        interact across the region. The result is a print-style composition that reads both as landscape and as infrastructure.
+      </p>
+
+      <div class="skillsBlock" aria-label="Skills used">
+        <div class="skillsLabel">Skills used</div>
+        <div class="chips">
+          <span class="chip">Shaded relief</span>
+          <span class="chip">Terrain rendering</span>
+          <span class="chip">Road network mapping</span>
+          <span class="chip">Cartographic layout</span>
+        </div>
+      </div>
+
+      <div class="skillsBlock" aria-label="Methods">
+        <div class="skillsLabel">Methods</div>
+        <div class="chips">
+          <span class="chip">DEM processing</span>
+          <span class="chip">Hillshade + texture</span>
+          <span class="chip">Vector overlay</span>
+          <span class="chip">Export + post-processing</span>
+        </div>
+      </div>
+
+      <div class="skillsBlock" aria-label="Tools">
+        <div class="skillsLabel">Tools</div>
+        <div class="chips">
+          <span class="chip">Blender</span>
+          <span class="chip">RStudio</span>
+          <span class="chip">Photoshop</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>
