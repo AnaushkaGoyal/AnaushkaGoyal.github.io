@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>COVID Center Accessibility | Maps | Anaushka Goyal</title>
+
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/project.css" />
+  <link rel="stylesheet" href="/assets/maps.css" />
+</head>
+
+<body class="mapDetailPage">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Home">AG</a>
+    <!-- no top nav on map detail pages -->
+  </header>
+
+  <main class="mapDetail">
+    <!-- LEFT: big map -->
+    <section class="mapPane" aria-label="Map view">
+      <img class="mapImage" src="./map.jpg" alt="Network analysis map proposing new COVID center sites to maximize 30-minute access coverage" />
+    </section>
+
+    <!-- RIGHT: text + skill boxes -->
+    <aside class="infoPane" aria-label="Map details">
+      <a class="backLink" href="/maps/">← Back to Maps</a>
+
+      <h1 class="mapH1">COVID Center Accessibility</h1>
+      <p class="mapP">
+        This analysis identifies candidate locations for new COVID service centers using network accessibility and proximity
+        to population. Proposed sites are evaluated through service-area coverage so that residents are within ~30 minutes of a
+        center, helping reduce gaps in access across neighborhoods with high concentrations of people and key trip generators.
+      </p>
+
+      <div class="skillsBlock" aria-label="Skills used">
+        <div class="skillsLabel">Skills used</div>
+        <div class="chips">
+          <span class="chip">Network analysis</span>
+          <span class="chip">Accessibility mapping</span>
+          <span class="chip">Site suitability</span>
+          <span class="chip">Cartographic design</span>
+        </div>
+      </div>
+
+      <div class="skillsBlock" aria-label="Methods">
+        <div class="skillsLabel">Methods</div>
+        <div class="chips">
+          <span class="chip">Service area / isochrone</span>
+          <span class="chip">Proximity to habitation</span>
+          <span class="chip">Multi-layer overlay</span>
+          <span class="chip">Candidate site selection</span>
+        </div>
+      </div>
+
+      <div class="skillsBlock" aria-label="Tools">
+        <div class="skillsLabel">Tools</div>
+        <div class="chips">
+          <span class="chip">ArcGIS Network Analyst</span>
+          <span class="chip">ArcGIS Pro</span>
+          <span class="chip">NYC Open Data</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>

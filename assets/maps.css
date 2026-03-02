@@ -1,0 +1,183 @@
+/* =========================
+   MAPS — Grid + Detail Pages
+   (keeps everything within viewport, no scrolling)
+   ========================= */
+
+.mapsPage, .mapDetailPage{
+  height: 100vh;
+  overflow: hidden; /* hard stop: no scroll */
+}
+
+/* ---------- shared dark glass surfaces ---------- */
+:root{
+  --glass: rgba(0,0,0,0.45);         /* main translucent black */
+  --glass-strong: rgba(0,0,0,0.58);  /* slightly stronger for inner blocks */
+  --glass-border: rgba(255,255,255,0.10);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.72);
+}
+
+/* keep content below your existing topbar */
+.mapsWrap{
+  height: calc(100vh - 64px);
+  padding: 28px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.mapsHead{ margin-bottom: 18px; }
+.mapsTitle{ font-size: 32px; line-height: 1.15; margin: 0 0 8px; color: var(--text); }
+.mapsSub{ margin: 0; max-width: 72ch; color: var(--muted); }
+
+.mapsGrid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  height: calc(100% - 88px);
+  overflow: hidden;
+  align-content: start;
+}
+
+.mapCard{
+  display: grid;
+  grid-template-rows: 1fr auto;
+  text-decoration: none;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--glass);
+  min-height: 180px;
+}
+
+.mapThumb{
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.mapCardMeta{
+  padding: 12px 12px 14px;
+}
+
+.mapCardTitle{
+  font-size: 15px;
+  font-weight: 650;
+  margin: 0 0 6px;
+  color: var(--text);
+}
+
+.mapCardDesc{
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* =========================
+   DETAIL LAYOUT (your sketch)
+   ========================= */
+
+.mapDetail{
+  height: calc(100vh - 64px);
+  padding: 18px 18px;
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 18px;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.mapPane{
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  background: var(--glass);             /* translucent black */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+.mapImage{
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* key: no crop */
+  display: block;
+}
+
+.infoPane{
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  background: var(--glass);             /* translucent black */
+  padding: 16px 16px;
+  overflow: hidden; /* no scroll */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--text);
+}
+
+.backLink{
+  text-decoration: none;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.backLink:hover{ color: var(--text); }
+
+.mapH1{
+  font-size: 24px;
+  line-height: 1.15;
+  margin: 2px 0 0;
+  color: var(--text);
+}
+
+.mapP{
+  margin: 0;
+  max-width: 52ch;
+  color: var(--muted);
+}
+
+/* Skill “boxes” — also translucent black (slightly stronger) */
+.skillsBlock{
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--glass-strong);      /* translucent black for inner boxes */
+}
+
+.skillsLabel{
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip{
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.06);
+  white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .mapsGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mapDetail{ grid-template-columns: 1fr; }
+  .mapDetail{ height: auto; overflow: auto; }
+  .mapDetailPage{ overflow: auto; } /* only on small screens */
+}
