@@ -27,7 +27,7 @@ const CYCLE_MS = 5000;      // total cycle per point
 const FADE_IN_MS = 1200;    // fade in duration
 const FADE_OUT_MS = 1600;   // fade out duration
 
-const TAGLINE = "I translate urban complexity into spatial clarity.";
+const TAGLINE = "I Build Geospatial Infrastructure for Real Decisions.";
 
 // ===== Canvas setup =====
 const canvas = document.getElementById("heroCanvas");
