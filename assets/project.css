@@ -580,6 +580,29 @@ h1 .subtitle{
   .project-charlotte .sideImg{ height: 220px; }
 }
 
+/* Center the grids as containers */
+.project-charlotte .miniGrid{
+  margin: 14px auto 0;     /* centers the whole grid */
+  width: 100%;
+}
+
+/* Make the clickable area behave like a block */
+.project-charlotte .miniFigure a,
+.project-charlotte .sideFig a,
+.project-charlotte .miniCard a{
+  display: block;
+}
+
+/* Ensure images center within their fixed-height frames */
+.project-charlotte .miniImg,
+.project-charlotte .sideImg{
+  object-position: center center;
+}
+
+/* Optional: slightly more “optimal” responsive heights */
+.project-charlotte .miniImg{ height: clamp(220px, 28vw, 340px); }
+.project-charlotte .sideImg{ height: clamp(200px, 22vw, 260px); }
+
 /* ============================= */
 /* Project 6 – Landuse (Research) */
 /* ============================= */
@@ -701,3 +724,150 @@ h1 .subtitle{
   .project-landuse .miniImg{ height: 280px; }
   .project-landuse .sideImg{ height: 260px; }
 }
+/* ============================= */
+/* Project 6 – Landuse FIXES     */
+/* ============================= */
+
+/* 1) FORCE the 4 side figures to stack vertically */
+.project-landuse .sideStack{
+  display: grid !important;              /* overrides any flex row from project.css */
+  grid-template-columns: 1fr !important; /* one per row */
+  grid-auto-flow: row !important;
+  gap: 14px !important;
+  align-content: start !important;
+}
+
+.project-landuse .sideFig{
+  width: 100% !important;                /* prevents “tile” sizing */
+}
+
+/* 2) Center-align the bottom 8-image grid as a block (NO other changes) */
+.project-landuse .miniGrid{
+  margin: 14px auto 0 !important;        /* centers the entire grid */
+  max-width: 1200px;                     /* keep your existing max */
+  width: 100%;
+}
+
+/* Optional but safe: ensures grid items don’t stretch weirdly */
+.project-landuse .miniGrid .miniCard{
+  width: 100%;
+}
+
+/* ============================= */
+/* Project – Witte / Lived Narratives */
+/* ============================= */
+
+.project-witte .researchHero{
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+.project-witte .researchMeta .p{
+  max-width: 72ch;
+}
+
+.project-witte .miniFigure{
+  margin: 0;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-witte .miniImg{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-witte .cap{
+  margin-top: 10px;
+  opacity: 0.85;
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+/* Body grid */
+.project-witte .researchBody{
+  margin-top: 22px;
+  gap: 26px;
+}
+
+.project-witte .sideStack{
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.project-witte .sideFig{
+  margin: 0;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-witte .sideImg{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Make quickFacts feel consistent + premium */
+.project-witte .quickFacts{
+  margin-top: 16px;
+}
+
+.project-witte .fact{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+}
+
+/* Gallery grid */
+.project-witte .researchSection{
+  margin-top: 26px;
+}
+
+.project-witte .miniGrid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.project-witte .miniCard{
+  margin: 0;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-witte .miniCard .miniImg{
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .project-witte .researchHero{
+    grid-template-columns: 1fr;
+  }
+  .project-witte .miniGrid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px){
+  .project-witte .miniGrid{
+    grid-template-columns: 1fr;
+  }
+}
+
