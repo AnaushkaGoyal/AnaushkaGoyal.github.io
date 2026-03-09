@@ -3,24 +3,113 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Projects | Anaushka Goyal</title>
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <title>Skyway Routing System | Anaushka Goyal</title>
+  <link rel="stylesheet" href="/assets/project.css" />
 </head>
-<body>
+
+<body class="project-skyway">
   <header class="topbar">
-    <a class="brand" href="/">AG</a>
-    <nav class="nav">
-      <a href="/projects/">Projects</a>
-      <a href="/viz/">Visualizations</a>
-      <a href="/about/">About</a>
-    </nav>
+    <a class="brand" href="/" aria-label="Home">AG</a>
   </header>
 
-  <section class="intro" style="padding-top:92px;">
-    <div class="intro-inner">
-      <h2>Projects</h2>
-      <p>Coming next: 4–6 best projects with crisp summaries + links.</p>
+  <main class="wrap">
+    <div class="kicker">Project</div>
+
+    <h1>
+      Skyway Routing System
+      <span class="subtitle">Minneapolis · Amenity-aware indoor navigation</span>
+    </h1>
+
+    <!-- Top autoplay video -->
+    <section class="researchHero" aria-label="Project demo">
+      <video class="topVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        controls>
+        <source src="./media/Anaushka_Yao_Tyler_Website_Video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <!-- Text content -->
+    <section class="researchBody" aria-label="Project narrative">
+      <div class="sectionTitle">What this project does</div>
+      <p class="p">
+        This project builds a routing website for the Minneapolis skyway system. Instead of giving only the shortest route,
+        it offers route options based on what a user wants along the way — such as food, retail, or open space.
+      </p>
+
+      <div class="quickFacts" aria-label="Quick facts">
+        <div class="fact">
+          <div class="factK">Focus</div>
+          <div class="factV">Indoor pedestrian routing through the skyway network</div>
+        </div>
+
+        <div class="fact">
+          <div class="factK">Methods</div>
+          <div class="factV">Graph extraction, nearest-edge matching, weighted routing</div>
+        </div>
+
+        <div class="fact">
+          <div class="factK">GIS</div>
+          <div class="factV">Skyway clipping, amenity mapping, network enrichment</div>
+        </div>
+
+        <div class="fact">
+          <div class="factK">Tools</div>
+          <div class="factV">Python · OSMnx · NetworkX · Shapely</div>
+        </div>
+      </div>
+
+      <div class="sectionTitle">Aim</div>
+      <p class="p">
+        The aim was to treat the skyway as a real urban circulation system, not just as missing space in mainstream maps.
+        The project responds to a simple problem: in Minneapolis, indoor walking matters, especially in winter, but most
+        digital maps do not help people navigate this network meaningfully.
+      </p>
+
+      <div class="sectionTitle">Approach</div>
+      <p class="p">
+        I extracted the pedestrian network with OSMnx, converted it into a graph, and reduced it to the skyway area.
+        Amenities such as food, retail, and open spaces were mapped, cleaned, and attached to nearby network edges.
+        This turned the graph into a routing system where each edge carried both distance and amenity information.
+      </p>
+
+      <div class="sectionTitle">How the routing works</div>
+      <p class="p">
+        The system still uses shortest-path logic, but it changes edge weights depending on what the user wants nearby.
+        If a user wants a food-rich path, edges near restaurants become more attractive. This makes the route more
+        experience-based rather than distance-only.
+      </p>
+
+      <div class="sectionTitle">What I accomplished</div>
+      <ul class="list">
+        <li>Built a walkable skyway network from OpenStreetMap data.</li>
+        <li>Matched amenities to network edges using nearest-edge logic.</li>
+        <li>Created alternative routes based on user priorities, not only shortest distance.</li>
+        <li>Translated the full workflow into a working website and demo.</li>
+      </ul>
+
+      <div class="sectionTitle">Why it matters</div>
+      <p class="p">
+        This project shows how geospatial data science can improve everyday navigation by making routing more human-centered.
+        It is both a network analysis project and a design experiment in how cities can be navigated by comfort, activity,
+        and experience — not just efficiency.
+      </p>
+
+      <div class="files" aria-label="Project links">
+        <a class="fileLink" href="./media/Final_Report.pdf" target="_blank" rel="noreferrer">View final report</a>
+        <a class="fileLink" href="/" rel="noreferrer">Back to home</a>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© Anaushka Goyal</div>
+      <a href="/" class="fileLink">Back to home</a>
     </div>
-  </section>
+  </main>
 </body>
 </html>

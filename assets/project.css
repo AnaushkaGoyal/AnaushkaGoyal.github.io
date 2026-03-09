@@ -903,3 +903,37 @@ h1 .subtitle{
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ============================= */
+/* Project 8 – Skyway Routing    */
+/* ============================= */
+
+.project-skyway .heroGrid{ display:none; }
+
+.project-skyway .researchBody{
+  margin-top: 24px;
+}
+
+.project-skyway .videoSection{
+  margin-top: 22px;
+  margin-bottom: 28px;
+}
+
+.project-skyway .topVideo{
+  width: 100%;
+  max-width: 1280px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  background: #050505;
+  border: none;
+  object-fit: contain;
+}
+
+@media (max-width: 900px){
+  .project-skyway .topVideo{
+    aspect-ratio: auto;
+  }
+}

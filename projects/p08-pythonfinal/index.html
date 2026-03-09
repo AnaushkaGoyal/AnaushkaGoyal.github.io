@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Skyway Routing System | Anaushka Goyal</title>
+  <link rel="stylesheet" href="/assets/project.css" />
+</head>
+
+<body class="project-skyway">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Home">AG</a>
+  </header>
+
+  <main class="wrap">
+    <div class="kicker">Project</div>
+
+    <h1>
+      Minneapolis Skyway Routing System
+      <span class="subtitle">Amenity-aware indoor navigation · Spatial Data Science and Python</span>
+    </h1>
+
+    <section class="researchBody" aria-label="Project introduction">
+      <div class="sectionTitle">What this project does</div>
+      <p class="p">
+        This project builds a routing system for the Minneapolis skyway network that goes beyond shortest-distance navigation.
+        It gives users route options based on what they want along the way, such as food, retail, or open space, turning the
+        skyway into a navigable urban layer rather than an unmapped indoor system.
+      </p>
+    </section>
+
+    <section class="videoSection" aria-label="Project demo video">
+      <video class="topVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto">
+        <source src="./media/Anaushka_Yao_Tyler_Website_Video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <section class="researchBody" aria-label="Project narrative">
+      <div class="sectionTitle">Aim</div>
+      <p class="p">
+        The aim was to create a routing tool that treats the Minneapolis skyway as a real pedestrian network, especially in a
+        city where climate strongly affects how people move indoors.
+      </p>
+
+      <div class="sectionTitle">Approach</div>
+      <p class="p">
+        I extracted the pedestrian network using OSMnx, converted it into a graph, and reduced it to the skyway area.
+        I then mapped nearby amenities and attached them to the network so that each route segment carried both distance
+        and place-based information.
+      </p>
+
+      <div class="sectionTitle">GIS + Spatial Logic</div>
+      <p class="p">
+        This project used geospatial processing to clip the network, organize amenities, and match them to graph edges.
+        The result was a routing system that combined network structure with urban context.
+      </p>
+
+      <div class="sectionTitle">Routing Method</div>
+      <p class="p">
+        The routing logic modifies edge cost based on user preference. Instead of optimizing only for the shortest path,
+        the system lowers route cost along edges with more relevant amenities nearby, allowing for food-oriented,
+        retail-oriented, or open-space-oriented paths.
+      </p>
+
+      <div class="sectionTitle">Results</div>
+      <p class="p">
+        The final system produced meaningfully different route options depending on user priorities. It showed that once
+        amenities are embedded into the network, routing begins to reflect urban experience rather than distance alone.
+      </p>
+    </section>
+
+    <div class="footer">
+      <div>© Anaushka Goyal</div>
+      <a href="/" class="fileLink">Back to home</a>
+    </div>
+  </main>
+</body>
+</html>
