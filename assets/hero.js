@@ -35,7 +35,7 @@ const ctx = canvas.getContext("2d");
 let W = 0, H = 0, DPR = 1;
 
 function resize() {
-  DPR = Math.min(2, window.devicePixelRatio || 1);
+  DPR = Math.min(1.25, window.devicePixelRatio || 1);
   W = canvas.clientWidth;
   H = canvas.clientHeight;
   canvas.width = Math.floor(W * DPR);
@@ -112,7 +112,7 @@ function drawRing(x, y, r, color, glowBoost=1) {
   ctx.strokeStyle = color;
   ctx.lineWidth = 0.8;
   ctx.shadowColor = color;
-  ctx.shadowBlur =0.8 * glowBoost;
+  ctx.shadowBlur =0.5 * glowBoost;
   ctx.globalAlpha = 1;
   ctx.beginPath();
   ctx.arc(x, y, r, 0, Math.PI*2);
