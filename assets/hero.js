@@ -35,7 +35,7 @@ const ctx = canvas.getContext("2d");
 let W = 0, H = 0, DPR = 1;
 
 function resize() {
-  DPR = Math.min(1.25, window.devicePixelRatio || 1);
+  DPR = Math.min(1.2, window.devicePixelRatio || 1);
   W = canvas.clientWidth;
   H = canvas.clientHeight;
   canvas.width = Math.floor(W * DPR);
@@ -112,7 +112,6 @@ function drawRing(x, y, r, color, glowBoost=1) {
   ctx.strokeStyle = color;
   ctx.lineWidth = 0.8;
   ctx.shadowColor = color;
-  ctx.shadowBlur =0.5 * glowBoost;
   ctx.globalAlpha = 1;
   ctx.beginPath();
   ctx.arc(x, y, r, 0, Math.PI*2);
@@ -140,7 +139,7 @@ function startTyping() {
 
   typedEl.textContent = "";
   let i = 0;
-  const speed = 6; // your faster speed
+  const speed = 18; // your faster speed
 
   const caret = document.querySelector(".caret");
 
@@ -169,6 +168,9 @@ document.getElementById("scrollBtn")?.addEventListener("click", () => {
 // ===== Data + animation =====
 let points = []; // {x,y, rTab,rLap,rPhone, delay, phase, glow}
 let startTime = performance.now();
+
+let running = true;
+let rafId = null;
 
 async function loadData() {
   const res = await fetch(DATA_URL, { cache: "no-cache" });
@@ -227,6 +229,7 @@ async function loadData() {
 }
 
 function frame(now) {
+  if (!running) return;
   const ms = now - startTime;
 
   // background (solid black)
@@ -273,14 +276,35 @@ function frame(now) {
     drawRing(p.x, p.y, p.rPhone * s, COLORS.phone, p.glow);
   }
 
-  requestAnimationFrame(frame);
+  rafId = requestAnimationFrame(frame);
 }
+
+// Pause animation when hero is not visible
+const observer = new IntersectionObserver((entries) => {
+
+  const visible = entries[0].isIntersecting;
+
+  if (visible && !running) {
+    running = true;
+    rafId = requestAnimationFrame(frame);
+  }
+
+  if (!visible && running) {
+    running = false;
+    if (rafId) cancelAnimationFrame(rafId);
+  }
+
+}, { threshold: 0.1 });
+
+observer.observe(canvas);
 
 async function init() {
   resize();
   await loadData();
-  requestAnimationFrame(frame);
+  rafId = requestAnimationFrame(frame);
 }
+
+
 
 init().catch((err) => {
   console.error(err);
