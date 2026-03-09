@@ -277,47 +277,88 @@ summary::-webkit-details-marker{display:none}
 }
 
 /* ============================= */
-/* About Section – High Contrast Clean */
+/* About Section */
 /* ============================= */
 
-#about-text {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #ffffff;
+#about-text{
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:#fff;
 }
 
-/* Section Labels (ABOUT, EDUCATION, etc.) */
-#about-text .hlabel {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  color: #ffffff;
+/* grid layout */
+#about-text .grid3{
+  gap:72px;
 }
 
-/* Paragraph Text */
-#about-text .p {
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 20px;   /* More breathing room */
-  color: #eaeaea;        /* Bright neutral white */
-  max-width: 500px;      /* Makes reading more premium */
+/* section labels (ABOUT / SCALE / SYSTEMS / RECOGNITION) */
+#about-text .hlabel{
+  font-size:16px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin:0 0 16px;
+  color:#fff;
 }
 
-/* Analytical Capabilities spacing */
-#about-text .p strong {
-  display: block;
-  margin-bottom: 8px;
-  color: #ffffff;
-  font-weight: 600;
+/* main title */
+#about-text .aboutTitle{
+  margin:0 0 18px;
+  font-size:clamp(1.7rem,2.8vw,2.5rem);
+  line-height:1.08;
+  font-weight:600;
+  letter-spacing:-0.03em;
 }
 
-/* Extra space between capability blocks */
-#about-text .p {
-  margin-bottom: 26px;
+/* subheaders like "Where I analyze cities" */
+#about-text .sectionSubhead{
+  margin:0 0 8px;
+  font-size:15px;
+  font-weight:500;
+  
+  color:rgba(255,255,255,0.62);
 }
 
-/* Column spacing */
-#about-text .grid3 {
-  gap: 72px;
+/* full width about block */
+#about-text .aboutFull{
+  width:100%;
+  max-width:none;
+  margin-bottom:50px;
+}
+
+/* about paragraphs */
+#about-text .aboutFull .p{
+  max-width:1100px;
+  width:100%;
+  font-size:15px;
+  line-height:1.65;
+  margin:0 0 15px;
+  color:rgba(255,255,255,0.82);
+  text-align:justify;
+}
+
+/* paragraphs inside the 3 columns */
+#about-text .scaleSystemRecognition .p{
+  font-size:15px;
+  line-height:1.65;
+  margin:0 0 26px;
+  color:rgba(255,255,255,0.78);
+  text-align:justify;
+}
+
+/* project titles inside paragraphs */
+#about-text .scaleSystemRecognition .p strong{
+  display:block;
+  margin-bottom:4px;
+  color:#fff;
+  font-weight:600;
+}
+
+/* links (Download CV) */
+#about-text .link{
+  color:#fff;
+  text-decoration:none;
+}
+
+#about-text .link:hover{
+  text-decoration:underline;
 }

@@ -771,9 +771,9 @@ h1 .subtitle{
 
 .project-witte .miniFigure{
   margin: 0;
-  padding: 14px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.04);
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -781,21 +781,56 @@ h1 .subtitle{
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.08);
 }
 
 .project-witte .cap{
-  margin-top: 10px;
-  opacity: 0.85;
-  font-size: 0.92rem;
+  margin-top: 12px;
+  color: rgba(255,255,255,0.72);
+  font-size: 0.95rem;
   line-height: 1.35;
+}
+
+/* ===== QUICK FACTS — make like Boston ===== */
+.project-witte .quickFacts{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+  max-width: 820px;
+}
+
+.project-witte .fact{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 16px 16px 15px;
+  min-height: 98px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.project-witte .factK{
+  font-size: 0.9rem;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.52);
+  margin-bottom: 12px;
+}
+
+.project-witte .factV{
+  font-size: 1.02rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.96);
 }
 
 /* Body grid */
 .project-witte .researchBody{
-  margin-top: 22px;
-  gap: 26px;
+  margin-top: 30px;
+  gap: 30px;
 }
 
 .project-witte .sideStack{
@@ -808,7 +843,7 @@ h1 .subtitle{
   margin: 0;
   padding: 12px;
   border-radius: 16px;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -820,20 +855,9 @@ h1 .subtitle{
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* Make quickFacts feel consistent + premium */
-.project-witte .quickFacts{
-  margin-top: 16px;
-}
-
-.project-witte .fact{
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px;
-}
-
 /* Gallery grid */
 .project-witte .researchSection{
-  margin-top: 26px;
+  margin-top: 30px;
 }
 
 .project-witte .miniGrid{
@@ -847,7 +871,7 @@ h1 .subtitle{
   margin: 0;
   padding: 12px;
   border-radius: 16px;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -860,14 +884,22 @@ h1 .subtitle{
   .project-witte .researchHero{
     grid-template-columns: 1fr;
   }
+
+  .project-witte .quickFacts{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .project-witte .miniGrid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 560px){
+@media (max-width: 640px){
+  .project-witte .quickFacts{
+    grid-template-columns: 1fr;
+  }
+
   .project-witte .miniGrid{
     grid-template-columns: 1fr;
   }
 }
-
