@@ -9,3 +9,5 @@ I’m especially interested in **real estate analytics, zoning research, and urb
 
 Outside of academics, I enjoy designing infographics, building interactive dashboards, and experimenting with creative mapping inspired by historic and artistic visual styles.  
 My long-term goal: to innovate at the intersection of **urban planning, data science, and technology**, shaping smarter cities and communities.  
+
+Check out my work at - https://www.anaushkagoyal.com/
