@@ -17,6 +17,215 @@
   <title>Anaushka Goyal | Geospatial Portfolio</title>
   <link rel="stylesheet" href="/assets/styles.css" />
 
+
+  <style>
+  /* =========================================
+     MOBILE RESPONSIVE ADDITIONS
+     Keeps desktop design unchanged
+     ========================================= */
+
+  /* safer sizing everywhere */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  img, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  html, body {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* tablet + phone */
+  @media (max-width: 900px) {
+    .section {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .hero-overlay {
+      width: min(92vw, 720px);
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 8vw, 4.5rem);
+      line-height: 1.05;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 3.3vw, 1.2rem);
+      line-height: 1.5;
+    }
+
+    .scrollhint {
+      font-size: 0.95rem;
+    }
+
+    .aboutFull {
+      max-width: 100%;
+    }
+
+    .grid3.scaleSystemRecognition {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .item {
+      flex: 0 0 78vw;
+      max-width: 78vw;
+    }
+
+    .thumb {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .footer {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .footer-icons {
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .email-text {
+      text-align: center;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+  }
+
+  /* phone */
+  @media (max-width: 640px) {
+    .topbar {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .brand {
+      font-size: 1rem;
+    }
+
+    .hero {
+      min-height: 100svh;
+    }
+
+    .hero-overlay {
+      width: 100%;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .hero-kicker {
+      font-size: 0.95rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 10vw, 3.2rem);
+      line-height: 1.02;
+      word-break: break-word;
+    }
+
+    .hero-tagline {
+      font-size: 0.98rem;
+      line-height: 1.55;
+      max-width: 32ch;
+    }
+
+    .section {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .aboutTitle {
+      font-size: clamp(1.6rem, 7vw, 2.2rem);
+      line-height: 1.15;
+    }
+
+    .sectionSubhead {
+      line-height: 1.4;
+    }
+
+    .p {
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .item {
+      flex: 0 0 84vw;
+      max-width: 84vw;
+    }
+
+    .caption {
+      line-height: 1.35;
+    }
+
+    .meta {
+      line-height: 1.35;
+    }
+
+    .scroller {
+      gap: 14px;
+      padding-bottom: 6px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+    }
+
+    .scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .item {
+      scroll-snap-align: start;
+    }
+
+    .footer-icons {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .fi svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  /* very small phones */
+  @media (max-width: 400px) {
+    .hero-title {
+      font-size: 1.9rem;
+    }
+
+    .item {
+      flex: 0 0 88vw;
+      max-width: 88vw;
+    }
+
+    .p,
+    .hero-tagline,
+    .caption,
+    .meta {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  }
+</style>
+
 </head>
 <body>
   <header class="topbar">
